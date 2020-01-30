@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <button *ngIf="status === null" class="btn btn-success float-right" type="button" routerLink="/login">Login</button>
+    <button *ngIf="status != null" class="btn btn-success float-right" type="button" (click)="logout()">Logout</button>
+    <div class="hero-section">
+        <h1 class="display-4">Luggage Storage Near You.</h1>
+        <p class="lead">Find Luggage Storage in Authorised Shops.</p>
+        <form [formGroup]="searchForm">
+            <div class="form-group row">
+                <input type="text" class="form-control" formControlName="search" placeholder="Enter a Town or City in Kenya">
+                <button class="btn btn-info" type="button" (click)="search()">Go</button>
+            </div>
+        </form>
+    </div>
+</div>

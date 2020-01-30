@@ -1,0 +1,66 @@
+.sign-up {
+    background-color: #182a50;
+    min-height: 100vh;
+    .container {
+        padding-top: 100px;
+        .display-4 {
+            color: #85d8ba;
+        }
+        .lead {
+            color: white;
+        }
+        form {
+            margin-top: 50px;
+            margin-bottom: 100px;
+            input {
+                border-radius: 0px;
+                font-size: 13px;
+                width: 30em;
+                height: 2rem;
+                border: 0px;
+            }
+            input[type="email"],
+            input[type="password"],
+            input[type="text"],
+            input[type="number"] {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            .invalid-feedback {
+                margin-left: 10px;
+                font-size: 11px;
+                color: white;
+            }
+            button {
+                border-radius: 0px;
+                height: 2rem;
+                background-color: #820263;
+                border: 0px;
+                outline: none !important;
+                box-shadow: none !important;
+                font-size: 13px;
+            }
+            p {
+                color: white;
+                font-size: 13px;
+                span {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    input {
+        width: 18em !important;
+    }
+    h1 {
+        margin-top: 30px;
+        font-size: 30px;
+    }
+    p {
+        font-size: 11px;
+    }
+}

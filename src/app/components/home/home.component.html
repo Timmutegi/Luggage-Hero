@@ -1,0 +1,46 @@
+<app-hero-section></app-hero-section>
+<div class="container">
+    <div class="stores">
+        <div class="row">
+            <div *ngFor="let store of stores" class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>{{store.name}}</strong></h5>
+                        <p class="card-text">{{store.county}}</p>
+                        <button routerLink="/details" class="btn btn-primary">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="steps">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/assets/images/step1.png">
+                <p>Book Online.</p>
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/step2.png">
+                <p>Drop off luggage at an authorised shop.</p>
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/step3.png">
+                <p>Enjoy your time without the weight of luggage.</p>
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/step4.png">
+                <p>Pay when picking up the luggage.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="pricing">
+        <h2>Pricing</h2>
+        <p>Store your luggage for as low as 30 kshs per hour. The costs are determined by the type of luggage, the volume of the luggage and the duration which it will be stored.</p>
+        <button routerLink="/details" class="btn btn-primary">Calculate Price.</button>
+    </div>
+</div>
+<app-footer></app-footer>
