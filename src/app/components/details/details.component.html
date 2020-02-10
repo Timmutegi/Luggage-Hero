@@ -2,12 +2,17 @@
 <div class="details">
     <div class="container">
         <div class="card mb-3">
-            <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+            <!-- <img src="/assets/images/food.jpg" class="card-img-top" alt="..."> -->
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h3 class="card-title">{{business?.name}}</h3>
+                <hr>
+                <p class="card-text"><span>County: </span>{{business?.county}}</p>
+                <p class="card-text"><span>Location: </span>{{business?.location}}</p>
+                <p class="card-text"><span>Email: </span>{{business?.email}}</p>
+                <p class="card-text"><span>Phone: </span>{{business?.phone}}</p>
+                <p class="card-text"><span>Capacity: </span>{{business?.capacity}}</p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                <button routerLink="/details" class="btn btn-primary">Book</button>
+                <button (click)="confirm(business._id)" class="btn btn-primary">Confirm</button>
             </div>
         </div>
 
