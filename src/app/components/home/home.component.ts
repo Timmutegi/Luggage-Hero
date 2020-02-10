@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +10,24 @@ import { ApiService } from '../../services/api.service';
 export class HomeComponent implements OnInit {
   stores: [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getStores();
   }
 
   getStores() {
-    this.apiService.getStores('/business').subscribe(
+    this.apiService.get('/business').subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.stores = res;
       }
     );
+  }
+
+  book(ID: string) {
+    console.log(ID);
+    this.router.navigate([`details/${ID}`]);
   }
 
 }

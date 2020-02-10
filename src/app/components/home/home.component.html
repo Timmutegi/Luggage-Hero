@@ -7,8 +7,8 @@
                     <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><strong>{{store.name}}</strong></h5>
-                        <p class="card-text">{{store.county}}</p>
-                        <button routerLink="/details" class="btn btn-primary">Book</button>
+                        <p class="card-text">{{store.location}}</p>
+                        <button (click)="book(store._id)" class="btn btn-primary">Book</button>
                     </div>
                 </div>
             </div>
@@ -18,21 +18,17 @@
     <hr>
     <div class="steps">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 mb-4">
                 <img src="/assets/images/step1.png">
                 <p>Book Online.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-4">
                 <img src="/assets/images/step2.png">
                 <p>Drop off luggage at an authorised shop.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-4">
                 <img src="/assets/images/step3.png">
                 <p>Enjoy your time without the weight of luggage.</p>
-            </div>
-            <div class="col-md-3">
-                <img src="/assets/images/step4.png">
-                <p>Pay when picking up the luggage.</p>
             </div>
         </div>
     </div>
