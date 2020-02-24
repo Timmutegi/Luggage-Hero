@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   stores: [];
+  isLoading = true;
 
   constructor(private apiService: ApiService, private router: Router) { }
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.apiService.get('/business').subscribe(
       res => {
         // console.log(res);
+        this.isLoading = false;
         this.stores = res;
       }
     );

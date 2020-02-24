@@ -1,5 +1,10 @@
 <app-hero-section></app-hero-section>
 <div class="container">
+    <div *ngIf="isLoading" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
     <div class="stores">
         <div class="row">
             <div *ngFor="let store of stores" class="col-md-4">
