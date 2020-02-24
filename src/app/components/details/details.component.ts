@@ -41,4 +41,8 @@ export class DetailsComponent implements OnInit {
     );
   }
 
+  cancel() {
+    this.router.navigate(['/home']);
+  }
+
 }
