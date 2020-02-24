@@ -16,7 +16,7 @@ export class BookingsComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.api.get('/booking/customer/' + user).subscribe(
       res => {
-        // console.log(res);
+        console.log(res);
         this.bookings = res;
         this.isLoading = false;
       }
