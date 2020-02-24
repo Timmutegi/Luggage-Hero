@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 export class DetailsComponent implements OnInit {
   ID: string;
   business: any;
+  isLoading = true;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) { }
 
@@ -18,7 +19,8 @@ export class DetailsComponent implements OnInit {
     console.log(this.ID);
     this.api.get('/business/' + this.ID).subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
+        this.isLoading = false;
         this.business = res;
       }
     );

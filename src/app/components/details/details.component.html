@@ -1,23 +1,36 @@
 <app-hero-section></app-hero-section>
 <div class="details">
     <div class="container">
-        <div class="card mb-3">
-            <!-- <img src="/assets/images/food.jpg" class="card-img-top" alt="..."> -->
-            <div class="card-body">
-                <h3 class="card-title">{{business?.name}}</h3>
-                <hr>
-                <p class="card-text"><span>County: </span>{{business?.county}}</p>
-                <p class="card-text"><span>Location: </span>{{business?.location}}</p>
-                <p class="card-text"><span>Email: </span>{{business?.email}}</p>
-                <p class="card-text"><span>Phone: </span>{{business?.phone}}</p>
-                <p class="card-text"><span>Capacity: </span>{{business?.capacity}}</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                <button (click)="cancel()" class="btn btn-primary">Cancel</button>
-
-                <button (click)="confirm(business._id)" class="btn btn-success">Confirm</button>
+        <div *ngIf="isLoading === true" class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <p class="card-text"><span>Business Name: </span>{{business?.name}}</p>
+                        <p class="card-text"><span>County: </span>{{business?.county}}</p>
+                        <p class="card-text"><span>Location: </span>{{business?.location}}</p>
+                        <p class="card-text"><span>Email: </span>{{business?.email}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <p class="card-text"><span>Phone: </span>{{business?.phone}}</p>
+                        <p class="card-text"><span>Capacity: </span>{{business?.capacity}}</p>
 
+                        <button (click)="cancel()" class="btn btn-primary">Cancel</button>
+
+                        <button (click)="confirm(business._id)" class="btn btn-success">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
