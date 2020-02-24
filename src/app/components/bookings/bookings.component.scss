@@ -1,6 +1,12 @@
 .bookings {
     margin-top: 50px;
     margin-bottom: 50px;
+    button {
+        border-radius: 0px;
+    }
+    span {
+        font-weight: bold;
+    }
     h1 {
         margin-bottom: 20px;
     }
