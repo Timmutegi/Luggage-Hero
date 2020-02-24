@@ -6,8 +6,8 @@
         <p class="lead">Find Luggage Storage in Authorised Shops.</p>
         <form [formGroup]="searchForm">
             <div class="form-group row">
-                <input type="text" class="form-control" formControlName="search" placeholder="Enter a Town or City in Kenya">
-                <button class="btn btn-info" type="button" (click)="search()">Go</button>
+                <input type="text" class="form-control" (click)="search()" formControlName="search" placeholder="Enter a Town or City in Kenya" [ngClass]="{ 'is-invalid': submitted && f.search.errors}">
+                <button class="btn btn-info" type="button" (click)="search()"><i class="fas fa-search"></i></button>
             </div>
         </form>
     </div>
