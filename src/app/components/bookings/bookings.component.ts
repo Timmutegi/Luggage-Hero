@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookings',
@@ -11,7 +12,7 @@ export class BookingsComponent implements OnInit {
   bookings: any;
   isLoading = true;
 
-  constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
+  constructor(private api: ApiService, private flashMessage: FlashMessagesService, private router: Router) { }
 
   ngOnInit() {
     const user = localStorage.getItem('user');
@@ -25,5 +26,9 @@ export class BookingsComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  home() {
+    this.router.navigate(['/home']);
   }
 }
