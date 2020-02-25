@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <app-hero-section></app-hero-section>
 <div class="container">
     <div class="stores">
@@ -9,7 +10,7 @@
         </div>
 
         <div class="row">
-            <div *ngFor="let store of stores" class="col-md-4">
+            <div *ngFor="let store of stores" class="col-md-3">
                 <div class="card mb-4" style="width: 18rem;">
                     <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -18,6 +19,9 @@
                         <button (click)="book(store._id)" class="btn btn-primary">Book <i class="fas fa-bookmark"></i></button>
                     </div>
                 </div>
+            </div>
+            <div class="all">
+                <button class="btn btn-primary">See all stores</button>
             </div>
         </div>
     </div>
