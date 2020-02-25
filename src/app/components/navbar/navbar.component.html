@@ -1,0 +1,14 @@
+<div class="Navbar">
+    <div class="Navbar-Link Navbar-Link-toggle">
+        <i (click)="clickMenu()" class="fas fa-bars"></i>
+    </div>
+    <nav class="Navbar-Items Navbar-Items--right">
+        <div class="Navbar-Link">
+            <button class="btn btn-success" (click)="bookings()">My Bookings</button>
+        </div>
+        <div class="Navbar-Link">
+            <button *ngIf="status === null" class="btn btn-success" (click)="login()">Login</button>
+            <button *ngIf="status != null" class="btn btn-success" (click)="logout()">Logout</button>
+        </div>
+    </nav>
+</div>
