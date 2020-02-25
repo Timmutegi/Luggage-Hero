@@ -15,6 +15,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BookingsComponent } from './components/bookings/bookings.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BookingsComponent } from './components/bookings/bookings.component';
     FooterComponent,
     DetailsComponent,
     BookingsComponent,
+    NavbarComponent,
 
   ],
   imports: [
