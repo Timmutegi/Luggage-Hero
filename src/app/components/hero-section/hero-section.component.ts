@@ -31,9 +31,4 @@ export class HeroSectionComponent implements OnInit {
     }
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/home']);
-  }
-
 }
