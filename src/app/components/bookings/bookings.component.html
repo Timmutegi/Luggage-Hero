@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <app-hero-section></app-hero-section>
 <div class="bookings">
     <div class="container">
@@ -24,9 +25,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
-                        <p class="card-text"><span>Capacity: </span>{{booking?.shop?.capacity}}</p>
-                        <p class="card-text"><span>Status: </span>{{booking?.status}}</p>
-                        <p class="card-text"><span>Time Booked: </span>{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                        <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
+                        <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
+                        <p class="card-text"><span>Time Booked : </span>{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
