@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
     this.api.signup('/user/register', this.signupForm.value).subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('token', 'token');
+        localStorage.setItem('user', res.user);
         this.router.navigate(['/home']);
       }
     );
