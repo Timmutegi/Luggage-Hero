@@ -19,8 +19,17 @@ export class HeroSectionComponent implements OnInit {
       search: ['', Validators.required]
     });
   }
+
   get f() {
     return this.searchForm.controls;
+  }
+
+  getLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const longitude = position.coords.longitude;
+      const latitude = position.coords.latitude;
+      console.log(longitude, latitude);
+    });
   }
 
   search() {
