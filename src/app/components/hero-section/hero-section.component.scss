@@ -1,14 +1,6 @@
 .container-fluid {
     background-color: #182a50;
     min-height: 300px;
-    .btn-success {
-        margin-top: 30px;
-        border-radius: 0px;
-        margin-right: 50px;
-        outline: none !important;
-        box-shadow: none !important;
-        font-size: 13px;
-    }
     .hero-section {
         padding-top: 70px;
         text-align: center;
@@ -40,6 +32,14 @@
                 border: 0px;
                 outline: none !important;
                 box-shadow: none !important;
+            }
+        }
+        .locate {
+            button {
+                border-radius: 0px;
+                font-size: 13px;
+                background-color: #182a50;
+                border: 1px solid #85d8ba;
             }
         }
     }
