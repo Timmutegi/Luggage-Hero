@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
@@ -11,7 +12,7 @@ export class HeroSectionComponent implements OnInit {
   status: string;
   submitted: boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.status = localStorage.getItem('token');
@@ -29,6 +30,7 @@ export class HeroSectionComponent implements OnInit {
       const longitude = position.coords.longitude;
       const latitude = position.coords.latitude;
       console.log(longitude, latitude);
+      this.router.navigate(['my-location']);
     });
   }
 
