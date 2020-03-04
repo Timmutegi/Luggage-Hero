@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  allStores() {
+    this.router.navigate(['all']);
+  }
+
   book(ID: string) {
     console.log(ID);
     this.router.navigate([`details/${ID}`]);
