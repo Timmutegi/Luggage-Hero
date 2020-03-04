@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
+import { GoogleMapComponent } from './components/google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AllStoresComponent } from './components/all-stores/all-stores.component
     BookingsComponent,
     NavbarComponent,
     AllStoresComponent,
+    GoogleMapComponent,
 
   ],
   imports: [
