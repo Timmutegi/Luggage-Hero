@@ -2,7 +2,7 @@
     background-color: #182a50;
     min-height: 300px;
     .hero-section {
-        padding-top: 70px;
+        padding-top: 50px;
         text-align: center;
         .display-4 {
             color: #85d8ba;
@@ -40,6 +40,14 @@
                 font-size: 13px;
                 background-color: #182a50;
                 border: 1px solid #85d8ba;
+            }
+            button:focus,
+            button:active {
+                outline: none !important;
+                box-shadow: none;
+            }
+            button:hover {
+                color: #85d8ba;
             }
         }
     }
