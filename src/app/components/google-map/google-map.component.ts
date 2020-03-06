@@ -1,4 +1,6 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-google-map',
@@ -8,37 +10,31 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 export class GoogleMapComponent implements AfterViewInit {
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
-  lng = 37.015567399999995;
-  lat = -1.1069468999999998;
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 8
-  };
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-    title: 'You',
-    icon: {
-      url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-    }
-  });
-  markers = [
-    {
-      position: new google.maps.LatLng(-1.03326, 37.06933),
-      map: this.map,
-      title: 'Marker 2',
-    },
-    {
-      position: new google.maps.LatLng(-0.28333, 36.06667),
-      map: this.map,
-      title: 'Marker 3'
-    }
-  ];
+  lng: number;
+  lat: number;
+  coordinates: google.maps.LatLng;
+  mapOptions: google.maps.MapOptions;
+  marker: google.maps.Marker;
+  businessMarker: google.maps.Marker;
 
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {}
 
   ngAfterViewInit() {
+    this.lat = this.activatedRoute.snapshot.params.LAT;
+    this.lng = this.activatedRoute.snapshot.params.LONG;
+    this.coordinates = new google.maps.LatLng(this.lat, this.lng);
+    this.mapOptions = {
+      center: this.coordinates,
+      zoom: 7
+    };
+    this.marker = new google.maps.Marker({
+      position: this.coordinates,
+      map: this.map,
+      title: 'You',
+      icon: {
+        url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+      }
+    });
     this.mapInitializer();
   }
 
@@ -60,17 +56,23 @@ export class GoogleMapComponent implements AfterViewInit {
   }
 
   loadAllMarkers() {
-    this.markers.forEach(markerInfo => {
-      const marker = new google.maps.Marker({
-        ...markerInfo
-      });
-      const infoWindow = new google.maps.InfoWindow({
-        content: marker.getTitle()
-      });
-      marker.addListener('click', () => {
-        infoWindow.open(marker.getMap(), marker);
-      });
-      marker.setMap(this.map);
-    });
+    this.apiService.get('/business').subscribe(
+      res => {
+        res.forEach(business => {
+          this.businessMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(business.latitude, business.longitude),
+            map: this.map,
+            title: business.name
+          });
+          const infoWindow = new google.maps.InfoWindow({
+            content: this.businessMarker.getTitle()
+          });
+          this.businessMarker.addListener('click', () => {
+            infoWindow.open(this.businessMarker.getMap(), this.businessMarker);
+          });
+          this.businessMarker.setMap(this.map);
+        });
+      }
+    );
   }
 }
