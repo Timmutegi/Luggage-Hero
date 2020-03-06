@@ -30,7 +30,7 @@ export class HeroSectionComponent implements OnInit {
       const longitude = position.coords.longitude;
       const latitude = position.coords.latitude;
       console.log(longitude, latitude);
-      this.router.navigate(['my-location']);
+      this.router.navigate([`my-location/${latitude}/${longitude}`]);
     });
   }
 
