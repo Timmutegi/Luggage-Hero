@@ -33,6 +33,20 @@
     font-size: 15px;
     margin-left: 20px;
     margin-bottom: 5px;
+    .dropdown-toggle,
+    .dropdown-menu {
+        background-color: #182a50 !important;
+        border: 0px;
+        border-radius: 0px;
+    }
+    .dropdown-menu a {
+        font-size: 13px;
+    }
+    .dropdown-menu a:hover {
+        background-color: #182a50 !important;
+        color: #85d8ba;
+        font-size: 13px;
+    }
 }
 
 .Navbar-Items {
@@ -41,7 +55,7 @@
 
 .Navbar-Items--right {
     margin-left: auto;
-    margin-right: 50px;
+    margin-right: 110px;
     cursor: pointer;
 }
 
@@ -67,12 +81,6 @@
     .Navbar-ToggleShow {
         display: flex;
         background-color: #182a50;
-    }
-    a {
-        border-bottom: 2px solid white;
-    }
-    a:hover {
-        border-bottom: 2px solid #85d8ba;
     }
     .Navbar-Link-toggle {
         align-self: flex-end;
