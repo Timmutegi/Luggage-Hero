@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard]},
   { path: 'all', component: AllStoresComponent},
-  { path: 'my-location', component: GoogleMapComponent}
+  { path: 'my-location/:LAT/:LONG', component: GoogleMapComponent}
 ];
 
 @NgModule({
