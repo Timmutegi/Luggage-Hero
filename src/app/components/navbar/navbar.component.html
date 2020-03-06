@@ -4,11 +4,14 @@
     </div>
     <nav class="Navbar-Items Navbar-Items--right">
         <div class="Navbar-Link">
-            <button class="btn btn-success" (click)="bookings()">My Bookings</button>
+            <a (click)="home()">Home</a>
         </div>
         <div class="Navbar-Link">
-            <button *ngIf="status === null" class="btn btn-success" (click)="login()">Login</button>
-            <button *ngIf="status != null" class="btn btn-success" (click)="logout()">Logout</button>
+            <a (click)="bookings()">My Bookings</a>
+        </div>
+        <div class="Navbar-Link">
+            <a *ngIf="status === null" (click)="login()">Login</a>
+            <a *ngIf="status != null" (click)="logout()">Logout</a>
         </div>
     </nav>
 </div>
