@@ -20,6 +20,10 @@ export class NavbarComponent implements OnInit {
     navs.forEach(nav => nav.classList.toggle('Navbar-ToggleShow'));
   }
 
+  home() {
+    this.router.navigate(['/home']);
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
