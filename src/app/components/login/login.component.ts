@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         if (res.code === 200) {
           localStorage.setItem('token', res.token);
           localStorage.setItem('user', res.user);
+          sessionStorage.setItem('firstname', res.firstname);
           this.router.navigate(['/home']);
         }
       }
