@@ -37,6 +37,11 @@
     .steps {
         margin-top: 50px;
         margin-bottom: 50px;
+        h3 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
         .row {
             display: flex;
             align-items: center;
