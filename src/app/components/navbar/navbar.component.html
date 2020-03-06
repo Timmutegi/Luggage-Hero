@@ -10,8 +10,17 @@
             <a (click)="bookings()">My Bookings</a>
         </div>
         <div class="Navbar-Link">
-            <a *ngIf="status === null" (click)="login()">Login</a>
-            <a *ngIf="status != null" (click)="logout()">Logout</a>
+            <div class="dropdown">
+                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-lg"></i>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a *ngIf="status === null" class="dropdown-item" (click)="login()">Login</a>
+                    <a *ngIf="status != null" class="dropdown-item" (click)="logout()">Logout</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                </div>
+            </div>
         </div>
     </nav>
 </div>
