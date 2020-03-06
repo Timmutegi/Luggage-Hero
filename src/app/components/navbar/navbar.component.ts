@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   status: string;
+  user: string;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.status = localStorage.getItem('token');
+    this.user = sessionStorage.getItem('firstname');
   }
   clickMenu() {
     const navs = document.querySelectorAll('.Navbar-Items');
@@ -28,6 +30,8 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
     this.status = null;
+    this.user = null;
+    sessionStorage.removeItem('firstname');
   }
 
   login() {
