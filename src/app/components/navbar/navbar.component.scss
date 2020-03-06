@@ -12,10 +12,11 @@
     a {
         color: white;
         font-weight: bold;
+        font-size: 13px;
     }
     a:hover {
         text-decoration: none;
-        color: black;
+        color: #85d8ba;
     }
     .active-link {
         // text-decoration: underline;
@@ -66,6 +67,12 @@
     .Navbar-ToggleShow {
         display: flex;
         background-color: #182a50;
+    }
+    a {
+        border-bottom: 2px solid white;
+    }
+    a:hover {
+        border-bottom: 2px solid #85d8ba;
     }
     .Navbar-Link-toggle {
         align-self: flex-end;
