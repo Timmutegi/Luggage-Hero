@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-<app-hero-section></app-hero-section>
 <div class="details">
     <div class="container">
         <div *ngIf="isLoading === true" class="text-center">
@@ -7,28 +6,31 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
+        <h3>Morbags - {{business?.name}}</h3>
         <div class="card mb-3">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
-                </div>
+            <div class="row no-gutters">
                 <div class="col-md-4">
                     <div class="card-body">
                         <p class="card-text"><span>Name : </span>{{business?.name}}</p>
                         <p class="card-text"><span>County : </span>{{business?.county}}</p>
                         <p class="card-text"><span>Location : </span>{{business?.location}}</p>
                         <p class="card-text"><span>Email : </span>{{business?.email}}</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
                         <p class="card-text"><span>Phone : </span>{{business?.phone}}</p>
                         <p class="card-text"><span>Capacity : </span>{{business?.capacity}}</p>
+                        <a *ngFor="let item of starList; let i = index" (click)="setRating(i)">
+                            <fa *ngIf="item" class="yes" name="star"></fa>
+                            <fa *ngIf="!item" class="no" name="star"></fa>
+                        </a>
+                        <p>Rating: {{rating}} stars</p>
 
                         <button (click)="cancel()" class="btn btn-primary">Cancel</button>
 
                         <button (click)="confirm(business._id)" class="btn btn-success">Confirm</button>
                     </div>
+
+                </div>
+                <div class="col-md-8">
+                    <div #mapContainer class="map"></div>
                 </div>
             </div>
         </div>

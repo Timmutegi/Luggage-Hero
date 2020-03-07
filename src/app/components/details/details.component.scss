@@ -3,6 +3,20 @@
     margin-bottom: 50px;
     .card {
         margin-top: 30px;
+        .map {
+            // margin: 10px;
+            height: 400px;
+            width: 100%;
+        }
+        span {
+            font-weight: bold;
+        }
+        .no {
+            color: black
+        }
+        .yes {
+            color: #D3D3D3;
+        }
         button {
             border-radius: 0px;
             margin-right: 10px;
