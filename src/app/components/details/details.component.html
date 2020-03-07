@@ -17,6 +17,8 @@
                         <p class="card-text"><span>Email : </span>{{business?.email}}</p>
                         <p class="card-text"><span>Phone : </span>{{business?.phone}}</p>
                         <p class="card-text"><span>Capacity : </span>{{business?.capacity}}</p>
+                        <hr>
+                        <p class=card-text><span>Rate</span></p>
                         <a *ngFor="let item of starList; let i = index" (click)="setRating(i)">
                             <fa *ngIf="item" class="yes" name="star"></fa>
                             <fa *ngIf="!item" class="no" name="star"></fa>
