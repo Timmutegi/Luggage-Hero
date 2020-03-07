@@ -5,11 +5,11 @@
         <form [formGroup]="searchForm">
             <div class="form-group row">
                 <input type="text" class="form-control" (click)="search()" formControlName="search" placeholder="Enter a Town or City in Kenya" [ngClass]="{ 'is-invalid': submitted && f.search.errors}">
-                <button class="btn btn-info" type="button" (click)="search()"><i class="fas fa-search"></i></button>
+                <button class="btn btn-info" type="button" (click)="search()"><fa name="search"></fa></button>
             </div>
         </form>
         <div class="locate">
-            <button class="btn btn-info" type="button" (click)="getLocation()">My Location <i class="fas fa-map-marker-alt"></i></button>
+            <button class="btn btn-info" type="button" (click)="getLocation()">My Location <fa name="map-marker"></fa></button>
         </div>
     </div>
 </div>
