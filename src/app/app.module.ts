@@ -18,6 +18,7 @@ import { BookingsComponent } from './components/bookings/bookings.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularFontAwesomeModule,
     HttpClientModule,
     FlashMessagesModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
