@@ -23,14 +23,18 @@
                         <p class="card-text"><span>Location : </span>{{booking?.shop?.location}}</p>
                         <p class="card-text"><span>Email : </span>{{booking?.shop?.email}}</p>
                         <p class="card-text"><span>Phone : </span>{{booking?.shop?.phone}}</p>
+                        <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
+                        <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
-                        <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
-                        <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
-                        <p class="card-text"><span>Time Booked : </span>{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p class="card-text"><span>Time Booked : </span></p>
+                        <p class="card-text">{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                        <p *ngIf="duration === true" class="card-text"><span>Check in Time : </span></p>
+                        <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                        <p *ngIf="duration === true" class="card-text"><span>Duration : </span></p>
+                        <p class="card-text">{{booking?.duration}}</p>
                     </div>
                 </div>
             </div>

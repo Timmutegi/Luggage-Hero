@@ -6,10 +6,13 @@
     }
     .card {
         agm-map {
-            height: 230px;
+            height: 300px;
         }
-        span {
-            font-weight: bold;
+        .card-text {
+            font-size: 14px;
+            span {
+                font-weight: bold;
+            }
         }
     }
 }
