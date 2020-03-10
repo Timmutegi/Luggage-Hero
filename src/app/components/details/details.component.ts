@@ -36,7 +36,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.api.get('/business/' + this.ID).subscribe(res => {
-      console.log(this.business);
       this.coordinates = new google.maps.LatLng(
         res.latitude,
         res.longitude
