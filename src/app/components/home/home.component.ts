@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit {
         // console.log(res);
         this.isLoading = false;
         this.stores = res;
+        this.stores.forEach((store: any) => {
+          store.longitude = parseFloat(store.longitude);
+          store.latitude = parseFloat(store.latitude);
+        });
       }
     );
   }
@@ -37,3 +41,4 @@ export class HomeComponent implements OnInit {
   }
 
 }
+

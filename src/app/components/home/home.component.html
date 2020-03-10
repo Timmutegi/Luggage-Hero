@@ -12,7 +12,9 @@
         <div class="row">
             <div *ngFor="let store of stores" class="col-md-3">
                 <div class="card mb-4" style="width: 18rem;">
-                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                    <agm-map [latitude]="store.latitude" [longitude]="store.longitude" [zoom]="7">
+                        <agm-marker [latitude]="store.latitude" [longitude]="store.longitude"></agm-marker>
+                    </agm-map>
                     <div class="card-body">
                         <h5 class="card-title"><strong>{{store.name}}</strong></h5>
                         <p class="card-text">{{store.location}}</p>
@@ -46,9 +48,9 @@
     </div>
     <hr>
     <div class="pricing">
-        <h2>Pricing</h2>
+        <h3>Pricing</h3>
         <p>Store your luggage for as low as 30 kshs per hour. The costs are determined by the type of luggage, the volume of the luggage and the duration which it will be stored.</p>
-        <button routerLink="/details" class="btn btn-primary">Calculate Price.</button>
+        <button routerLink="#" class="btn btn-primary">Calculate Price.</button>
     </div>
 </div>
 <app-footer></app-footer>
