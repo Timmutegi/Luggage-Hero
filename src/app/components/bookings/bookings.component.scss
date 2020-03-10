@@ -1,10 +1,15 @@
 .bookings {
     margin-top: 50px;
     margin-bottom: 50px;
-    span {
-        font-weight: bold;
-    }
     h1 {
         margin-bottom: 20px;
+    }
+    .card {
+        agm-map {
+            height: 230px;
+        }
+        span {
+            font-weight: bold;
+        }
     }
 }

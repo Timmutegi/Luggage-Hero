@@ -12,7 +12,9 @@
         <div *ngFor="let booking of bookings" class="card mb-3">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                    <agm-map [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude" [zoom]="7">
+                        <agm-marker [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude"></agm-marker>
+                    </agm-map>
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">

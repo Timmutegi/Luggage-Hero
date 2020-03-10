@@ -24,6 +24,10 @@ export class BookingsComponent implements OnInit {
         }
         this.bookings = res;
         this.isLoading = false;
+        this.bookings.forEach((booking: any) => {
+          booking.shop.longitude = parseFloat(booking.shop.longitude);
+          booking.shop.latitude = parseFloat(booking.shop.latitude);
+        });
       }
     );
   }
