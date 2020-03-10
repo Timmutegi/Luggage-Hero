@@ -1,5 +1,5 @@
 .footer {
-    min-height: 300px;
+    min-height: 340px;
     background-color: #182a50;
     color: white;
     .container {
@@ -22,6 +22,14 @@
             a:hover {
                 color: #85d8ba;
             }
+        }
+    }
+    .social {
+        span {
+            font-size: 13px;
+        }
+        fa {
+            margin-left: 10px;
         }
     }
     hr {
