@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class BookingsComponent implements OnInit {
   bookings: any;
   isLoading = true;
-  duration: boolean;
+  duration = false;
 
   constructor(private api: ApiService, private flashMessage: FlashMessagesService, private router: Router) { }
 
@@ -27,13 +27,12 @@ export class BookingsComponent implements OnInit {
         this.bookings.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
-          // CALCULATES DURATION OF BOOKING
-          const current = new Date ();
-          const checkIn = new Date (booking.check_in);
-          let difference = Math.abs(current.getTime() - checkIn.getTime()) / 1000;
 
-          if (difference > 0) {
-             this.duration = true;
+          // CALCULATES DURATION OF BOOKING
+          if (booking.status === 'Active') {
+             const current = new Date();
+             const checkIn = new Date(booking.check_in);
+             let difference = Math.abs(current.getTime() - checkIn.getTime()) / 1000;
              const days = Math.floor(difference / 86400);
              difference -= days * 86400;
 
@@ -46,8 +45,6 @@ export class BookingsComponent implements OnInit {
 
              booking.duration = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} seconds`;
           }
-
-          this.duration = false;
         });
       }
     );
