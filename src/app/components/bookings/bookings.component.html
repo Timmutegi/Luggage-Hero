@@ -31,9 +31,9 @@
                     <div class="card-body">
                         <p class="card-text"><span>Time Booked : </span></p>
                         <p class="card-text">{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
-                        <p *ngIf="duration === true" class="card-text"><span>Check in Time : </span></p>
+                        <p class="card-text"><span>Check in Time : </span></p>
                         <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
-                        <p *ngIf="duration === true" class="card-text"><span>Duration : </span></p>
+                        <p class="card-text"><span>Duration : </span></p>
                         <p class="card-text">{{booking?.duration}}</p>
                     </div>
                 </div>
