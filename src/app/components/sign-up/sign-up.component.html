@@ -38,7 +38,9 @@
                         </div>
                     </div>
                     <p>Already have an account? <span routerLink="/login">Login</span></p>
-                    <button type="submit" class="btn btn-primary" (click)="signup()">Sign up</button>
+                    <button type="submit" class="btn btn-primary" (click)="signup()">Sign up
+                        <span *ngIf="isLoading === true" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </button>
                 </form>
             </div>
 

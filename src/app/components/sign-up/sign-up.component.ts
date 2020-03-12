@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   submitted = false;
+  isLoading: boolean;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private router: Router) { }
 
@@ -34,12 +35,13 @@ export class SignUpComponent implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-
+    this.isLoading = true;
     this.api.signup('/user/register', this.signupForm.value).subscribe(
       res => {
         console.log(res);
         localStorage.setItem('user', res.user);
         this.router.navigate(['/home']);
+        this.isLoading = false;
       }
     );
   }
