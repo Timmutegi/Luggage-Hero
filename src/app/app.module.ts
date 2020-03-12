@@ -44,7 +44,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
-      // libraries: ['places', 'geometry']
     }),
     FlashMessagesModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
