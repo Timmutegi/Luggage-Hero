@@ -5,6 +5,9 @@
             <div class="col-md-12">
                 <h1 class="display-4">Luggage Storage Near You.</h1>
                 <h4 class="lead">Find Luggage Storage in Authorised Shops.</h4>
+                <div class="flash">
+                    <flash-messages></flash-messages>
+                </div>
                 <form [formGroup]="signupForm">
                     <div class="form-group">
                         <input type="text" class="form-control" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors}" aria-describedby="emailHelp" placeholder="Firstname">

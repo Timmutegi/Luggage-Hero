@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { ErrorHandlingService } from '../../services/error-handling.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +14,11 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   isLoading: boolean;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService, private router: Router,
+    private errorHandler: ErrorHandlingService
+  ) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -40,8 +45,13 @@ export class SignUpComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('user', res.user);
+        localStorage.setItem('firstname', res.firstname);
         this.router.navigate(['/home']);
         this.isLoading = false;
+      },
+      err => {
+        this.isLoading = false;
+        this.errorHandler.handleError(err);
       }
     );
   }
