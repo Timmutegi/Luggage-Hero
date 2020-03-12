@@ -31,11 +31,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']);
     this.status = null;
     this.user = null;
-    sessionStorage.removeItem('firstname');
+    localStorage.removeItem('firstname');
   }
 
   login() {
     this.router.navigate(['/login']);
+  }
+
+  signUp() {
+    this.router.navigate(['/signup']);
   }
 
   bookings() {
