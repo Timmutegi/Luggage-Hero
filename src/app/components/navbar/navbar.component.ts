@@ -13,8 +13,8 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.status = localStorage.getItem('token');
-    this.user = sessionStorage.getItem('firstname');
+    this.status = localStorage.getItem('user');
+    this.user = localStorage.getItem('firstname');
   }
   clickMenu() {
     const navs = document.querySelectorAll('.Navbar-Items');
