@@ -1,6 +1,6 @@
 .login {
     background-color: #182a50;
-    min-height: 100vh;
+    min-height: 90vh;
     .container {
         padding-top: 100px;
         .display-4 {
@@ -8,6 +8,10 @@
         }
         .lead {
             color: white;
+        }
+        .flash {
+            margin-top: 50px;
+            max-width: 25em;
         }
         form {
             margin-top: 50px;

@@ -1,9 +1,13 @@
+<app-navbar></app-navbar>
 <div class="login">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="display-4">Luggage Storage Near You.</h1>
                 <h4 class="lead">Find Luggage Storage in Authorised Shops.</h4>
+                <div class="flash">
+                    <flash-messages></flash-messages>
+                </div>
                 <form [formGroup]="loginForm">
                     <div class="form-group">
                         <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}" aria-describedby="emailHelp" placeholder="Email address">
