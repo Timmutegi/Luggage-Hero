@@ -12,6 +12,7 @@ import { ErrorHandlingService } from '../../services/error-handling.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
+  isLoading: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    this.isLoading = true;
     this.api.login('/user/login', this.loginForm.value).subscribe(
       res => {
         // console.log(res);
@@ -45,9 +46,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user', res.user);
           sessionStorage.setItem('firstname', res.firstname);
           this.router.navigate(['/home']);
+          this.isLoading = false;
         }
       },
       err => {
+        this.isLoading = false;
         this.errorHandler.handleError(err);
       }
     );
