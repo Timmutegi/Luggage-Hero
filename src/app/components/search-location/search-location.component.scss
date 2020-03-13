@@ -1,0 +1,36 @@
+.search {
+    min-height: 80vh;
+    .container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        .stores {
+            .d-flex {
+                margin-bottom: 50px;
+            }
+            .row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .col-md-3 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .card {
+                    border-radius: 0px;
+                    button {
+                        border-radius: 0px;
+                        font-size: 13px;
+                        background-color: #820263;
+                        outline: none !important;
+                        box-shadow: none !important;
+                        border: 0px;
+                    }
+                }
+            }
+            h1 {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

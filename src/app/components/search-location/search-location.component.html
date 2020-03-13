@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="search">
+    <div class="container">
+        <div class="stores">
+            <h3>{{location}}</h3>
+            <div *ngIf="isLoading" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div class="flash">
+                {{message}}
+            </div>
+
+            <div class="row">
+                <div *ngFor="let store of stores" class="col-md-3">
+                    <div class="card mb-4" style="width: 18rem;">
+                        <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>{{store.name}}</strong></h5>
+                            <p class="card-text">{{store.location}}</p>
+                            <button (click)="book(store._id)" class="btn btn-primary">Book <fa name="bookmark"></fa>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
