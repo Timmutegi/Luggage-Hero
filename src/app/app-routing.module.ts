@@ -8,17 +8,19 @@ import { AuthGuard } from './auth/auth.guard';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
+import { SearchLocationComponent } from './components/search-location/search-location.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent},
-  { path: '', component: HomeComponent},
-  { path: 'signup', component: SignUpComponent},
+  { path: 'login', component: LoginComponent },
+  { path: '', component: HomeComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
-  { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard]},
-  { path: 'all', component: AllStoresComponent},
-  { path: 'my-location/:LAT/:LONG', component: GoogleMapComponent}
+  { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
+  { path: 'all', component: AllStoresComponent },
+  { path: 'my-location/:LAT/:LONG', component: GoogleMapComponent },
+  { path: 'location/:location', component: SearchLocationComponent }
 ];
 
 @NgModule({
