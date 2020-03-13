@@ -39,6 +39,9 @@ export class HeroSectionComponent implements OnInit {
     if (this.searchForm.invalid) {
       return;
     }
+    const location = this.searchForm.value.search;
+    console.log(location);
+    this.router.navigate([`location/${location}`]);
   }
 
 }
