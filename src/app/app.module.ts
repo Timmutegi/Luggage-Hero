@@ -20,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SearchLocationComponent } from './components/search-location/search-location.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     NavbarComponent,
     AllStoresComponent,
     GoogleMapComponent,
+    SearchLocationComponent,
 
   ],
   imports: [
