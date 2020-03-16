@@ -85,7 +85,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       {
         customer: user,
         shop: ID,
-        status: 'pending'
+        status: 'Pending'
       }
     ));
     this.api.post('/booking/create', booking).subscribe(
