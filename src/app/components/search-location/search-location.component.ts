@@ -12,6 +12,7 @@ export class SearchLocationComponent implements OnInit {
   isLoading = true;
   stores: [];
   message: string;
+  flash: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,9 +26,9 @@ export class SearchLocationComponent implements OnInit {
       res => {
         console.log(res);
         if (res.length === 0) {
+          this.flash = true;
           this.isLoading = false;
-          this.message = 'No store found in the selected area. Try Nairobi';
-        }
+       }
         this.stores = res;
         this.isLoading = false;
       }
