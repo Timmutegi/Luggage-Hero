@@ -16,6 +16,10 @@
             }
             .card {
                 border-radius: 0px;
+                agm-map {
+                    height: 200px;
+                    width: 100%;
+                }
                 button {
                     border-radius: 0px;
                     font-size: 13px;
