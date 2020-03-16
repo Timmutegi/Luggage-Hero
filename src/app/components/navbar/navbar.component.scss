@@ -2,7 +2,7 @@
     background-color: #182a50;
     display: flex;
     padding: 16px;
-    min-height: 10vh;
+    min-height: 13vh;
     font-family: sans-serif;
     color: white;
     button {
@@ -19,7 +19,6 @@
         color: #85d8ba;
     }
     .active-link {
-        // text-decoration: underline;
         color: black !important;
     }
 }
