@@ -12,7 +12,9 @@
         <div class="row">
             <div *ngFor="let store of stores" class="col-md-3">
                 <div class="card mb-4" style="width: 18rem;">
-                    <img src="/assets/images/food.jpg" class="card-img-top" alt="...">
+                    <agm-map [latitude]="store.latitude" [longitude]="store.longitude" [zoom]="7">
+                        <agm-marker [latitude]="store.latitude" [longitude]="store.longitude"></agm-marker>
+                    </agm-map>
                     <div class="card-body">
                         <h5 class="card-title"><strong>{{store.name}}</strong></h5>
                         <p class="card-text">{{store.location}}</p>
