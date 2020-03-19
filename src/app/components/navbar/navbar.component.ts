@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
     this.status = null;
     this.user = null;
     localStorage.removeItem('firstname');
+    localStorage.removeItem('user');
   }
 
   login() {
