@@ -29,6 +29,7 @@
                             "src/manifest.webmanifest"
                         ],
                         "styles": [
+                            "node_modules/animate.css/animate.min.css",
                             "src/styles.scss",
                             "../luggage/node_modules/font-awesome/scss/font-awesome.scss"
                         ],
