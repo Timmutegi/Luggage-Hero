@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { fadeInAnimation, slideInAnimation } from '../../route-animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [slideInAnimation]
 })
 export class HomeComponent implements OnInit {
   stores: [];
