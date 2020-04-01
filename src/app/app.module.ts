@@ -21,6 +21,7 @@ import { AllStoresComponent } from './components/all-stores/all-stores.component
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SearchLocationComponent } from './components/search-location/search-location.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SearchLocationComponent } from './components/search-location/search-loc
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
     }),
