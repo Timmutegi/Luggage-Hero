@@ -12,9 +12,9 @@ import { SearchLocationComponent } from './components/search-location/search-loc
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, data: {state: 'home'} },
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: {state: 'home'} },
   { path: 'signup', component: SignUpComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
