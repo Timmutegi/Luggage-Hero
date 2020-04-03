@@ -1,6 +1,9 @@
 .container {
     margin-top: 50px;
     .stores {
+        h1 {
+            margin-bottom: 20px;
+        }
         .d-flex {
             margin-bottom: 50px;
         }
@@ -20,6 +23,7 @@
             }
             .card {
                 border-radius: 0px;
+                transition: all 0.3s ease;
                 agm-map {
                     height: 200px;
                     width: 100%;
@@ -33,9 +37,9 @@
                     border: 0px;
                 }
             }
-        }
-        h1 {
-            margin-bottom: 20px;
+            .card:hover {
+                transform: scale(1.05);
+            }
         }
     }
     .steps {
@@ -51,20 +55,25 @@
             align-items: center;
             justify-content: center;
             flex-direction: row;
+            .col-md-3 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                img {
+                    width: 200px;
+                    height: 150px;
+                }
+                p {
+                    margin-top: 20px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+            }
         }
-        .col-md-3 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        img {
-            width: 200px;
-            height: 150px;
-        }
-        p {
-            text-align: center;
-            font-size: 15px;
+        .col-md-3:hover {
+            transform: scale(1.1);
         }
     }
     .pricing {
