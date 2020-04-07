@@ -24,7 +24,14 @@
                             <fa *ngIf="!item" class="no" name="star"></fa>
                         </a>
                         <p>Rating : {{rating}} </p>
-
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-label>Choose a date</mat-label>
+                                <input matInput [min]="minDate" [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
                         <button (click)="cancel()" class="btn btn-primary">Cancel</button>
 
                         <button (click)="confirm(business._id)" class="btn btn-success">Confirm</button>
