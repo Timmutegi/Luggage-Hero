@@ -22,6 +22,10 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SearchLocationComponent } from './components/search-location/search-location.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
     }),
