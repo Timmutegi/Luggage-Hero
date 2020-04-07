@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -8,6 +9,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
+  // date: new FormControl(new Date());
   ID: string;
   business: any;
   isLoading = true;
@@ -21,8 +23,12 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   mapOptions: google.maps.MapOptions;
   marker: google.maps.Marker;
   businessMarker: google.maps.Marker;
+  minDate: Date;
+  maxDate: Date;
 
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) {
+    this.minDate = new Date();
+   }
 
   ngOnInit() {
     this.ID = this.activatedRoute.snapshot.params.ID;
