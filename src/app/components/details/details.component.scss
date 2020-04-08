@@ -19,11 +19,15 @@
         .card-body .row {
             margin: 5px;
             mat-form-field {
+                width: 8rem;
                 input {
                     font-weight: bold;
                     color: black;
                 }
             }
+        }
+        .open-close {
+            font-size: 13px;
         }
         button {
             border-radius: 0px;
