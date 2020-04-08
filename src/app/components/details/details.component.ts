@@ -25,6 +25,8 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   businessMarker: google.maps.Marker;
   minDate: Date;
   maxDate: Date;
+  open: string;
+  close: string;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) {
     this.minDate = new Date();
@@ -38,6 +40,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
         this.business = res;
       }
     );
+    this.getBusinessHours();
   }
 
   ngAfterViewInit() {
@@ -72,6 +75,32 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     });
     // ADDS DEFAULT MARKER TO MAP
     this.marker.setMap(this.map);
+  }
+
+  getBusinessHours() {
+    this.api.get('/workhours/' + this.ID).subscribe(
+      res => {
+        const hours = res[this.getWeekDay()];
+        this.open = hours.open;
+        this.close = hours.close;
+      }
+    );
+  }
+
+  getWeekDay() {
+    const date = new Date();
+    const day = date.getDay();
+    const weekDay = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+    ];
+    // console.log(weekDay[day]);
+    return weekDay[day];
   }
 
   setRating(data: any) {
