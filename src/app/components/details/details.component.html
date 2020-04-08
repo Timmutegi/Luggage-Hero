@@ -24,6 +24,7 @@
                             <fa *ngIf="!item" class="no" name="star"></fa>
                         </a>
                         <p>Rating : {{rating}} </p>
+                        <hr>
                         <div class="row">
                             <mat-form-field>
                                 <mat-label>Choose a date</mat-label>
@@ -32,6 +33,7 @@
                                 <mat-datepicker #picker disabled="false"></mat-datepicker>
                             </mat-form-field>
                         </div>
+                        <p class="card-text open-close">Today Open from {{open}} - {{close}}</p>
                         <button (click)="cancel()" class="btn btn-primary">Cancel</button>
 
                         <button (click)="confirm(business._id)" class="btn btn-success">Confirm</button>
