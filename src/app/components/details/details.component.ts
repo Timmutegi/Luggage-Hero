@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
-  // date: new FormControl(new Date());
+  date = new FormControl(new Date());
   ID: string;
   business: any;
   isLoading = true;
