@@ -18,6 +18,12 @@
         }
         .card-body .row {
             margin: 5px;
+            mat-form-field {
+                input {
+                    font-weight: bold;
+                    color: black;
+                }
+            }
         }
         button {
             border-radius: 0px;
