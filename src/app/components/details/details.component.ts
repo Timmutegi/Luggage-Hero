@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { FormControl } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-details',
@@ -9,7 +10,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
-  date = new FormControl(new Date());
+  // date = new FormControl(new Date());
+  date = new Date();
   ID: string;
   business: any;
   isLoading = true;
@@ -25,8 +27,8 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   businessMarker: google.maps.Marker;
   minDate: Date;
   maxDate: Date;
-  open: string;
-  close: string;
+  workhours: string;
+  checkHours: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) {
     this.minDate = new Date();
@@ -81,10 +83,27 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     this.api.get('/workhours/' + this.ID).subscribe(
       res => {
         const hours = res[this.getWeekDay()];
-        this.open = hours.open;
-        this.close = hours.close;
+        this.workhours = `Open Today from ${hours.open} - ${hours.close}`;
       }
     );
+  }
+
+  getMonth(month: number) {
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ];
+    return months[month];
   }
 
   getWeekDay() {
@@ -99,7 +118,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       'friday',
       'saturday',
     ];
-    // console.log(weekDay[day]);
     return weekDay[day];
   }
 
@@ -114,13 +132,43 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  addEvent(type: Date, event: MatDatepickerInputEvent<Date>) {
+    this.workhours = '';
+    this.checkHours = true;
+    const fullDate = new Date(event.value);
+    this.date = fullDate;
+    const weekDay = [
+       'sunday',
+       'monday',
+       'tuesday',
+       'wednesday',
+       'thursday',
+       'friday',
+       'saturday',
+     ];
+    const day = weekDay[fullDate.getDay()];
+    const month = this.getMonth(fullDate.getMonth());
+    const date = fullDate.getDate();
+    // console.log(date, day, month);
+
+    this.api.get('/workhours/' + this.ID).subscribe(
+      res => {
+        this.checkHours = false;
+        const hours = res[day];
+        this.workhours = `Open On ${date} ${month} from ${hours.open} - ${hours.close}`;
+    });
+
+  }
+
   confirm(ID: string) {
+    console.log(this.date);
     const user = localStorage.getItem('user');
     const booking = JSON.parse(JSON.stringify(
       {
         customer: user,
         shop: ID,
-        status: 'Pending'
+        status: 'Pending',
+        date: this.date
       }
     ));
     this.api.post('/booking/create', booking).subscribe(
