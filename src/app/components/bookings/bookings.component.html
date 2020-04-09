@@ -30,6 +30,8 @@
                     <div class="card-body">
                         <p class="card-text"><span>Time Booked : </span></p>
                         <p class="card-text">{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                        <p class="card-text"><span>Date Booked : </span></p>
+                        <p class="card-text">{{booking?.date | date : 'fullDate'}}</p>
                         <p class="card-text"><span>Check in Time : </span></p>
                         <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
                         <p class="card-text"><span>Duration : </span></p>
