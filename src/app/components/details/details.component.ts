@@ -132,7 +132,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  addEvent(type: Date, event: MatDatepickerInputEvent<Date>) {
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.workhours = '';
     this.checkHours = true;
     const fullDate = new Date(event.value);
