@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col mb-4">
-                <h4>Company</h4>
+                <h4>Morbags</h4>
                 <nav class="nav flex-column">
                     <a>About us</a>
                     <a>Terms & conditions</a>
@@ -11,30 +11,31 @@
                 </nav>
             </div>
             <div class="col mb-4">
-                <h4>Support</h4>
-                <nav class="nav flex-column">
-                    <a>Troubleshoot</a>
-                    <a>Report a bug</a>
-                    <a>API</a>
-                    <a>Privacy policy</a>
-                </nav>
+                <h4>Newsletter</h4>
+                <h6>Subscribe to our newsletter to get updates.</h6>
+                <form [formGroup]="subscribeForm">
+                    <div class="form-group row">
+                        <input type="email" class="form-control" (click)="subscribe()" formControlName="subscribe" placeholder="Enter Email Address" [ngClass]="{ 'is-invalid': submitted && f.subscribe.errors}">
+                        <div *ngIf="submitted && f.subscribe.errors" class="invalid-feedback">
+                            <div *ngIf="f.subscribe.errors.required">Email is required</div>
+                            <div *ngIf="f.subscribe.errors.pattern">Input a valid email</div>
+                        </div>
+                        <button class="btn btn-info" type="button" (click)="subscribe()">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="col mb-4">
-                <h4>Luggage</h4>
-                <nav class="nav flex-column">
-                    <a>Partnerships</a>
-                    <a>Terms & conditions</a>
-                    <a>FAQs</a>
-                    <a>Privacy policy</a>
-                </nav>
+                <h4>Social Media</h4>
+                <h6 class="intro">Follow us on social media to find out the latest updates on our progress</h6>
+                <div class="social-media">
+                    <fa name="facebook" size="lg"></fa>
+                    <fa name="twitter" size="lg"></fa>
+                    <fa name="instagram" size="lg"></fa>
+                    <fa name="linkedin" size="lg"></fa>
+                </div>
             </div>
-        </div>
-        <div class="social">
-            <span>Follow us on: </span>
-            <fa name="facebook"></fa>
-            <fa name="twitter"></fa>
-            <fa name="instagram"></fa>
-            <fa name="linkedin"></fa>
         </div>
         <hr>
         <p style="font-size: 12px;">Morbags &copy; &nbsp; All Rights Reserved.</p>
