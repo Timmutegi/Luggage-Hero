@@ -1,19 +1,51 @@
 .footer {
-    min-height: 340px;
+    min-height: 450px;
     background-color: #182a50;
     color: white;
     .container {
         padding-top: 50px;
         .row {
             margin-bottom: 50px;
-            h4 {
-                color: #85d8ba;
-            }
             .col {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
+                h4 {
+                    color: #85d8ba;
+                }
+                h6 {
+                    font-size: 13px;
+                }
+                form {
+                    margin-left: 15px;
+                    input[type="email"] {
+                        outline: none !important;
+                        box-shadow: none !important;
+                    }
+                    input {
+                        border-radius: 0px;
+                        font-size: 13px;
+                        height: 2rem;
+                        width: 80%;
+                        border: 0px;
+                    }
+                    .invalid-feedback {
+                        color: white;
+                    }
+                    button {
+                        margin-top: 10px;
+                        font-size: 13px;
+                        border-radius: 0px;
+                        background-color: #820263;
+                        border: 0px;
+                        outline: none !important;
+                        box-shadow: none !important;
+                    }
+                }
+                .social-media {
+                    margin-top: 20px;
+                    fa {
+                        cursor: pointer;
+                        margin-right: 20px;
+                    }
+                }
             }
             a {
                 cursor: pointer;
@@ -24,20 +56,21 @@
             }
         }
     }
-    .social {
-        span {
-            font-size: 13px;
-        }
-        fa {
-            margin-left: 10px;
-        }
-    }
     hr {
         border: 1px solid white;
     }
 }
 
 @media only screen and (max-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .newsletter {
+            height: 9rem;
+        }
+    }
     p {
         padding-bottom: 50px;
         margin-bottom: 0px;
