@@ -65,6 +65,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .Navbar {
+        min-height: 50px;
+    }
     .Navbar-Items,
     .Navbar {
         flex-direction: column;
