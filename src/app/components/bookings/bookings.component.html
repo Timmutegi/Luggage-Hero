@@ -8,38 +8,46 @@
             </div>
         </div>
         <flash-messages></flash-messages>
-        <div *ngFor="let booking of bookings" class="card mb-3">
-            <div class="row">
-                <div class="col-md-4">
-                    <agm-map [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude" [zoom]="7">
-                        <agm-marker [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude"></agm-marker>
-                    </agm-map>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <p class="card-text"><span>Name : </span>{{booking?.shop?.name}}</p>
-                        <p class="card-text"><span>County : </span>{{booking?.shop?.county}}</p>
-                        <p class="card-text"><span>Location : </span>{{booking?.shop?.location}}</p>
-                        <p class="card-text"><span>Email : </span>{{booking?.shop?.email}}</p>
-                        <p class="card-text"><span>Phone : </span>{{booking?.shop?.phone}}</p>
-                        <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
-                        <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let booking of bookings">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{booking?.shop?.name}} - {{booking?.date | date : 'fullDate'}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text"><span>Name : </span>{{booking?.shop?.name}}</p>
+                            <p class="card-text"><span>Location : </span>{{booking?.shop?.location}}</p>
+                            <p class="card-text"><span>Email : </span>{{booking?.shop?.email}}</p>
+                            <p class="card-text"><span>Phone : </span>{{booking?.shop?.phone}}</p>
+                            <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
+                            <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text"><span>Date Booked : </span></p>
+                            <p class="card-text">{{booking?.date | date : 'fullDate'}}</p>
+                            <p class="card-text"><span>Check in Time : </span></p>
+                            <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                            <p class="card-text"><span>Duration : </span></p>
+                            <p class="card-text">{{booking?.duration}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <agm-map [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude" [zoom]="7">
+                            <agm-marker [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude"></agm-marker>
+                        </agm-map>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <p class="card-text"><span>Time Booked : </span></p>
-                        <p class="card-text">{{booking?.createdAt | date : 'EEE, MMM d, h:mm:ss'}}</p>
-                        <p class="card-text"><span>Date Booked : </span></p>
-                        <p class="card-text">{{booking?.date | date : 'fullDate'}}</p>
-                        <p class="card-text"><span>Check in Time : </span></p>
-                        <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
-                        <p class="card-text"><span>Duration : </span></p>
-                        <p class="card-text">{{booking?.duration}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <mat-action-row>
+                    <button class="btn btn-info">Get Directions</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+        </mat-accordion>
     </div>
 </div>
 <app-footer></app-footer>
