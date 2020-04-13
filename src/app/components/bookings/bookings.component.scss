@@ -5,14 +5,22 @@
     h1 {
         margin-bottom: 20px;
     }
-    .card {
-        agm-map {
-            height: 300px;
+    mat-expansion-panel {
+        .row {
+            margin-bottom: 10px;
+            .col-md-4 {
+                span {
+                    font-weight: bold;
+                }
+                agm-map {
+                    height: 250px;
+                }
+            }
         }
-        .card-text {
-            font-size: 14px;
-            span {
-                font-weight: bold;
+        mat-action-row {
+            button {
+                border-radius: 0px;
+                font-size: 13px;
             }
         }
     }
