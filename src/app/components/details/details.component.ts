@@ -53,7 +53,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       );
       this.mapOptions = {
         center: this.coordinates,
-        zoom: 10
+        zoom: 13
       };
       this.marker = new google.maps.Marker({
         position: this.coordinates,
@@ -178,9 +178,4 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       }
     );
   }
-
-  cancel() {
-    this.router.navigate(['/home']);
-  }
-
 }
