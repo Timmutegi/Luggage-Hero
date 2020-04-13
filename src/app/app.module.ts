@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatExpansionModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { MatInputModule } from '@angular/material';
     BrowserAnimationsModule,
     MatNativeDateModule,
     MatInputModule,
+    MatExpansionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
     }),
