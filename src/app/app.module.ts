@@ -26,6 +26,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule, MatExpansionModule } from '@angular/material';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatInputModule, MatExpansionModule } from '@angular/material';
     AllStoresComponent,
     GoogleMapComponent,
     SearchLocationComponent,
+    AboutComponent,
 
   ],
   imports: [
