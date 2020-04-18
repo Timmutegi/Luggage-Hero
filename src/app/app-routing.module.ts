@@ -9,6 +9,7 @@ import { BookingsComponent } from './components/bookings/bookings.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { SearchLocationComponent } from './components/search-location/search-location.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
   { path: 'all', component: AllStoresComponent },
