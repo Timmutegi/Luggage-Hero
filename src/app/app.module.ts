@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,6 +62,7 @@ import { AboutComponent } from './components/about/about.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
     }),
+    AgmDirectionModule,
     FlashMessagesModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
