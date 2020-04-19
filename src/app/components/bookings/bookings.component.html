@@ -42,9 +42,20 @@
                         </agm-map>
                     </div>
                 </div>
-                <mat-action-row>
-                    <button class="btn btn-info">Get Directions</button>
-                </mat-action-row>
+                <div class="row">
+                    <div class="card-body">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" (click)="getDirections(booking.shop.latitude, booking.shop.longitude)">
+                            Get Directions
+                        </button>
+                        <div class="collapse" id="collapseExample">
+                            <agm-map [zoom]="7">
+                                <agm-marker *ngFor="let coordinate of coordinates" [latitude]="coordinate.latitude" [longitude]="coordinate.longitude">
+                                    <agm-direction [origin]="directions.origin" [destination]="directions.destination"></agm-direction>
+                                </agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+                </div>
             </mat-expansion-panel>
 
         </mat-accordion>

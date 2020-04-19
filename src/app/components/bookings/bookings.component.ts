@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { LatLng } from '@agm/core';
 
 @Component({
   selector: 'app-bookings',
@@ -12,6 +13,9 @@ export class BookingsComponent implements OnInit {
   bookings: any;
   isLoading = true;
   duration = false;
+  directions: {origin: {lng: number, lat: number}, destination: {lng: number, lat: number}};
+  // directions: any;
+  coordinates: any;
 
   constructor(private api: ApiService, private flashMessage: FlashMessagesService, private router: Router) { }
 
@@ -50,7 +54,29 @@ export class BookingsComponent implements OnInit {
     );
   }
 
-  home() {
-    this.router.navigate(['/home']);
+  getDirections(latitude: number, longitude: number) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+       const mylongitude = position.coords.longitude;
+       const mylatitude = position.coords.latitude;
+       const location = [];
+
+       location.push({longitude: mylongitude, latitude: mylatitude}, {longitude, latitude});
+       const directions = {
+         origin: {
+           lng: mylongitude,
+           lat: mylatitude
+          },
+          destination: {
+            lng: longitude,
+            lat: latitude
+          }
+        };
+       this.directions = directions;
+       this.coordinates = location;
+       console.log(this.coordinates, this.directions);
+     });
+
   }
+
 }
