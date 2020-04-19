@@ -149,7 +149,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     const day = weekDay[fullDate.getDay()];
     const month = this.getMonth(fullDate.getMonth());
     const date = fullDate.getDate();
-    // console.log(date, day, month);
 
     this.api.get('/workhours/' + this.ID).subscribe(
       res => {
