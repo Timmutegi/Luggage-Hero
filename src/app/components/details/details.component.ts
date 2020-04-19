@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-import { FormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
@@ -10,7 +9,6 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
-  // date = new FormControl(new Date());
   date = new Date();
   ID: string;
   business: any;
