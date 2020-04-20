@@ -13,13 +13,19 @@ export class BookingsComponent implements OnInit {
   bookings: any;
   isLoading = true;
   duration = false;
-  directions: {origin: {lng: number, lat: number}, destination: {lng: number, lat: number}};
-  // directions: any;
+  directions: any = [];
   coordinates: any;
+  lat: number;
+  lng: number;
 
   constructor(private api: ApiService, private flashMessage: FlashMessagesService, private router: Router) { }
 
   ngOnInit() {
+    this.getLocation();
+    this.getBookings();
+  }
+
+  getBookings() {
     const user = localStorage.getItem('user');
     this.api.get('/booking/customer/' + user).subscribe(
       res => {
@@ -52,31 +58,29 @@ export class BookingsComponent implements OnInit {
         });
       }
     );
+
+  }
+
+  getLocation() {
+     navigator.geolocation.getCurrentPosition(
+      position => {
+       this.lng = position.coords.longitude;
+       this.lat = position.coords.latitude;
+     });
   }
 
   getDirections(latitude: number, longitude: number) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-       const mylongitude = position.coords.longitude;
-       const mylatitude = position.coords.latitude;
-       const location = [];
-
-       location.push({longitude: mylongitude, latitude: mylatitude}, {longitude, latitude});
-       const directions = {
-         origin: {
-           lng: mylongitude,
-           lat: mylatitude
-          },
-          destination: {
-            lng: longitude,
-            lat: latitude
-          }
-        };
-       this.directions = directions;
-       this.coordinates = location;
-       console.log(this.coordinates, this.directions);
-     });
-
+    const directions = {
+      origin: {
+        lng: this.lng,
+        lat: this.lat
+      },
+      destination: {
+        lng: longitude,
+        lat: latitude
+      }
+    };
+    this.directions.push(directions);
   }
 
 }
