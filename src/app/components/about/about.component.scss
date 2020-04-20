@@ -1,3 +1,19 @@
 .about {
     min-height: 80vh;
+    .jumbotron {
+        background-color: white;
+        .content {
+            display: flex;
+            img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
 }
