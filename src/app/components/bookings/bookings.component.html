@@ -16,7 +16,7 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text"><span>Name : </span>{{booking?.shop?.name}}</p>
                             <p class="card-text"><span>Location : </span>{{booking?.shop?.location}}</p>
@@ -26,7 +26,7 @@
                             <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text"><span>Date Booked : </span></p>
                             <p class="card-text">{{booking?.date | date : 'fullDate'}}</p>
@@ -36,11 +36,7 @@
                             <p class="card-text">{{booking?.duration}}</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <agm-map [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude" [zoom]="7">
-                            <agm-marker [latitude]="booking.shop.latitude" [longitude]="booking.shop.longitude"></agm-marker>
-                        </agm-map>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="card-body">
@@ -49,8 +45,8 @@
                         </button>
                         <div class="collapse" id="collapseExample">
                             <agm-map [zoom]="7">
-                                <agm-marker *ngFor="let coordinate of coordinates" [latitude]="coordinate.latitude" [longitude]="coordinate.longitude">
-                                    <agm-direction [origin]="directions.origin" [destination]="directions.destination"></agm-direction>
+                                <agm-marker [latitude]="lat" [longitude]="lng">
+                                    <agm-direction *ngFor="let dir of directions" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
                                 </agm-marker>
                             </agm-map>
                         </div>
