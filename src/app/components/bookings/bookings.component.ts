@@ -40,20 +40,20 @@ export class BookingsComponent implements OnInit {
 
           // CALCULATES DURATION OF BOOKING
           if (booking.status === 'Active') {
-             const current = new Date();
-             const checkIn = new Date(booking.check_in);
-             let difference = Math.abs(current.getTime() - checkIn.getTime()) / 1000;
-             const days = Math.floor(difference / 86400);
-             difference -= days * 86400;
+            const current = new Date();
+            const checkIn = new Date(booking.check_in);
+            let difference = Math.abs(current.getTime() - checkIn.getTime()) / 1000;
+            const days = Math.floor(difference / 86400);
+            difference -= days * 86400;
 
-             const hours = Math.floor(difference / 3600) % 24;
-             difference -= hours * 3600;
+            const hours = Math.floor(difference / 3600) % 24;
+            difference -= hours * 3600;
 
-             const minutes = Math.floor(difference / 60) % 60;
-             difference -= minutes * 60;
-             const seconds = Math.round(difference);
+            const minutes = Math.floor(difference / 60) % 60;
+            difference -= minutes * 60;
+            const seconds = Math.round(difference);
 
-             booking.duration = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} seconds`;
+            booking.duration = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} seconds`;
           }
         });
       }
@@ -62,11 +62,11 @@ export class BookingsComponent implements OnInit {
   }
 
   getLocation() {
-     navigator.geolocation.getCurrentPosition(
-      position => {
-       this.lng = position.coords.longitude;
-       this.lat = position.coords.latitude;
-     });
+    navigator.geolocation.getCurrentPosition(
+    position => {
+      this.lng = position.coords.longitude;
+      this.lat = position.coords.latitude;
+    });
   }
 
   getDirections(latitude: number, longitude: number) {
