@@ -40,11 +40,13 @@
                             <div *ngIf="f.password.errors.required">Password is required</div>
                         </div>
                     </div>
-                    <p>Already have an account? <span routerLink="/login">Login</span></p>
                     <button type="submit" class="btn btn-primary" (click)="signup()">Sign up
                         <span *ngIf="isLoading === true" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     </button>
+                    <p>Already have an account? <span routerLink="/login">Login</span></p>
+
                 </form>
+
             </div>
 
         </div>

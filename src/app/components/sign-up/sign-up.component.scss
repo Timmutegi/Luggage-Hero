@@ -15,8 +15,6 @@
             font-size: 13px;
         }
         form {
-            margin-top: 50px;
-            margin-bottom: 100px;
             input {
                 border-radius: 0px;
                 font-size: 13px;
@@ -69,10 +67,7 @@
             text-align: center;
         }
         .flash {
-            max-width: 18em !important;
-        }
-        p {
-            font-size: 11px;
+            max-width: 20em !important;
         }
         form {
             display: flex;
@@ -80,10 +75,14 @@
             justify-content: center;
             flex-direction: column;
             input {
-                width: 18em !important;
+                width: 20em !important;
             }
             button {
-                width: 18em;
+                width: 20em;
+            }
+            p {
+                margin-top: 20px;
+                font-size: 11px;
             }
         }
     }

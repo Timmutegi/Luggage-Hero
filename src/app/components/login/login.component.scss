@@ -67,10 +67,7 @@
             font-size: 13px;
         }
         .flash {
-            max-width: 18em !important;
-        }
-        p {
-            font-size: 11px;
+            max-width: 20em !important;
         }
         form {
             margin-top: 20px;
@@ -79,10 +76,14 @@
             justify-content: center;
             flex-direction: column;
             input {
-                width: 18em !important;
+                width: 20em !important;
             }
             button {
-                width: 18em;
+                width: 20em;
+            }
+            p {
+                margin-top: 20px;
+                font-size: 11px;
             }
         }
     }

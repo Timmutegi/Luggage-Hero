@@ -23,10 +23,10 @@
                             <div *ngIf="f.password.errors.min">Password should be at least 6 characters</div>
                         </div>
                     </div>
-                    <p>Don't have an account? <span routerLink="/signup">Sign Up</span></p>
                     <button type="submit" (click)="login()" class="btn btn-primary">Login
                         <span *ngIf="isLoading === true" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     </button>
+                    <p>Don't have an account? <span routerLink="/signup">Sign Up</span></p>
                 </form>
             </div>
         </div>
