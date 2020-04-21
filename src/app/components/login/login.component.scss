@@ -10,11 +10,12 @@
             color: white;
         }
         .flash {
-            margin-top: 50px;
-            max-width: 25em;
+            margin-top: 20px;
+            font-size: 13px;
+            max-width: 30em;
         }
         form {
-            margin-top: 50px;
+            margin-top: 30px;
             margin-bottom: 100px;
             input {
                 border-radius: 0px;
@@ -33,7 +34,6 @@
                 font-size: 13px;
             }
             .invalid-feedback {
-                margin-left: 10px;
                 font-size: 11px;
                 color: white;
             }
@@ -55,19 +55,35 @@
 }
 
 @media only screen and (max-width: 768px) {
-    h1 {
-        margin-top: 30px;
-        font-size: 30px;
-    }
-    p {
-        font-size: 11px;
-    }
-    form {
-        input {
-            width: 18em !important;
+    .container {
+        padding-top: 20px !important;
+        h1 {
+            margin-top: 30px;
+            font-size: 21px;
+            text-align: center;
         }
-        button {
-            width: 18em;
+        h4 {
+            text-align: center;
+            font-size: 13px;
+        }
+        .flash {
+            max-width: 18em !important;
+        }
+        p {
+            font-size: 11px;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            input {
+                width: 18em !important;
+            }
+            button {
+                width: 18em;
+            }
         }
     }
 }
