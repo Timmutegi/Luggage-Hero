@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router';
-import { LatLng } from '@agm/core';
 
 @Component({
   selector: 'app-bookings',
@@ -18,7 +16,7 @@ export class BookingsComponent implements OnInit {
   lat: number;
   lng: number;
 
-  constructor(private api: ApiService, private flashMessage: FlashMessagesService, private router: Router) { }
+  constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     this.getLocation();
