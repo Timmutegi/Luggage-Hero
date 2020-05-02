@@ -54,8 +54,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .container-fluid {
+        min-height: 250px;
+        .hero-section {
+            padding-top: 10px;
+        }
+    }
     input[type="text"] {
-        width: 17em !important;
+        width: 20em !important;
         font-size: 10px !important;
     }
     h1 {
