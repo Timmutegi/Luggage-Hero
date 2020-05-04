@@ -29,6 +29,7 @@
 .Navbar-Link {
     img {
         height: 30px;
+        margin-left: 100px;
     }
     padding-right: 20px;
     font-size: 15px;
@@ -68,6 +69,11 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .Navbar-Link {
+        img {
+            margin-left: 0px;
+        }
+    }
     .Navbar {
         min-height: 50px;
     }
