@@ -12,7 +12,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="firstname">Firstname</label>
-                            <input type="text" class="form-control" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors}">
+                            <input type="text" class="form-control" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors}" autofocus>
                             <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
                                 <div *ngIf="f.firstname.errors.required">Firstname is required</div>
                             </div>
@@ -56,13 +56,13 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-8">
-                            <button type="submit" class="btn btn-primary btn-block" (click)="signup()">Sign up
+                            <button type="submit" class="btn btn-primary btn-block" (click)="signup()">SIGN UP <fa name="user-plus"></fa>
                                 <span *ngIf="isLoading === true" class="spinner-border spinner-border-sm" role="status"
                                     aria-hidden="true"></span>
                             </button>
+                            <button class="btn btn-primary btn-block">Sign up with Google <fa name="google"></fa></button>
                         </div>
                     </div>
-
 
                     <p>Already have an account? <span routerLink="/login">Login</span></p>
                 </form>

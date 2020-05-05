@@ -2,7 +2,7 @@
     background-color: #182a50;
     min-height: 90vh;
     .container {
-        padding-top: 80px;
+        padding-top: 60px;
         h1 {
             color: #85d8ba;
         }
@@ -31,6 +31,12 @@
                 outline: none !important;
                 box-shadow: none !important;
             }
+            input[type="email"]:focus,
+            input[type="password"]:focus,
+            input[type="number"]:focus,
+            input[type="text"]:focus {
+                background-color: #e7e4f0;
+            }
             .invalid-feedback {
                 font-size: 11px;
                 color: white;
@@ -44,6 +50,10 @@
                 outline: none !important;
                 box-shadow: none !important;
                 font-size: 13px;
+                font-weight: bold;
+                fa {
+                    margin-left: 20px;
+                }
             }
             p {
                 color: white;
