@@ -60,8 +60,11 @@
                 font-size: 13px;
                 margin-top: 20px;
                 span {
-                    text-decoration: underline;
                     cursor: pointer;
+                    color: #9B5DE5;
+                }
+                span:hover {
+                    text-decoration: underline;
                 }
             }
         }
