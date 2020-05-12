@@ -5,10 +5,14 @@
             <div class="col-md-12">
                 <h1 class="display-4">Luggage Storage Near You.</h1>
                 <h4 class="lead">Find Luggage Storage in Authorised Shops.</h4>
-                <div class="flash">
-                    <flash-messages></flash-messages>
-                </div>
+
                 <form [formGroup]="loginForm">
+                    <div class="form-row">
+                        <div class="flash form-group col-md-4">
+                            <flash-messages></flash-messages>
+                        </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="email">Email Address</label>
@@ -28,13 +32,13 @@
                                 <div *ngIf="f.password.errors.required">Password is required</div>
                                 <div *ngIf="f.password.errors.minlength">Password should be at least 6 characters</div>
                             </div>
-                            <p class="forgot"><span>Forgot Password?</span></p>
+                            <p class="forgot" routerLink="/forgot-password"><span>Forgot Password?</span></p>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-4">
-                            <button type="submit" (click)="login()" class="btn btn-primary btn-block">LOGIN <fa name="sign-in"></fa>
-                                <span *ngIf="isLoading === true" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
+                            <button type="submit" (click)="login()" [disabled]="isLoading" class="btn btn-primary btn-block">LOGIN <fa name="sign-in"></fa>
+                                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>

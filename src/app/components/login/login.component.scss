@@ -9,14 +9,12 @@
         .lead {
             color: white;
         }
-        .flash {
-            margin-top: 20px;
-            font-size: 13px;
-            max-width: 30em;
-        }
         form {
-            margin-top: 30px;
-            margin-bottom: 100px;
+            margin-top: 20px;
+            margin-bottom: 80px;
+            .flash {
+                font-size: 13px;
+            }
             label {
                 color: white;
                 font-size: 13px;
