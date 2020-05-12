@@ -21,7 +21,7 @@ export class ErrorHandlingService {
       errorMessage = `${error.error.details}`;
     }
     // window.alert(errorMessage);
-    this.flashMessage.show(errorMessage, {cssClass: 'alert-success', timeout: 10000});
+    this.flashMessage.show(errorMessage, {cssClass: 'alert-danger rounded-0', timeout: 10000});
     return throwError(errorMessage);
   }
 }
