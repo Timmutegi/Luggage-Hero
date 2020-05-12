@@ -17,6 +17,10 @@ export class ApiService {
     return this.http.post<any>(this.baseUrl + endpoint, data);
   }
 
+  reset(endpoint: string, data: JSON) {
+    return this.http.patch<any>(this.baseUrl + endpoint, data);
+  }
+
   get(endpoint: string) {
     return this.http.get<any>(this.baseUrl + endpoint);
   }
