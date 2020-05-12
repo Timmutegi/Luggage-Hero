@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-footer',
@@ -8,13 +10,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FooterComponent implements OnInit {
   subscribeForm: FormGroup;
-  submitted: boolean;
+  submitted = false;
+  clicked = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     this.subscribeForm = this.formBuilder.group({
-      subscribe: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,5}$')]]
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,5}$')]]
     });
   }
 
@@ -24,12 +27,26 @@ export class FooterComponent implements OnInit {
 
   subscribe() {
     this.submitted = true;
+
     if (this.subscribeForm.invalid) {
       return;
     }
-    const email = this.subscribeForm.value.subscribe;
-    console.log(email);
 
+    this.clicked = true;
+
+    this.api.post('/subscribe', this.subscribeForm.value).subscribe(
+      res => {
+        if (res.code === 200) {
+          this.submitted = false;
+          this.subscribeForm.reset();
+          this.flashMessage.show('You are now subscribed', {cssClass: 'p-1', timeout: 10000});
+          this.clicked = false;
+        }
+      },
+      err => {
+        this.clicked = false;
+      }
+    );
   }
 
 }

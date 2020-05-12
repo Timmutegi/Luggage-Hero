@@ -14,7 +14,7 @@
                     font-size: 13px;
                 }
                 form {
-                    margin-left: 15px;
+                    margin-left: 20px;
                     input[type="email"] {
                         outline: none !important;
                         box-shadow: none !important;
@@ -27,7 +27,7 @@
                         border: 0px;
                     }
                     .invalid-feedback {
-                        color: white;
+                        font-size: 13px;
                     }
                     button {
                         margin-top: 10px;
@@ -37,7 +37,16 @@
                         border: 0px;
                         outline: none !important;
                         box-shadow: none !important;
+                        span {
+                            margin-left: 10px;
+                        }
                     }
+                }
+                .flash {
+                    margin-top: 10px;
+                    width: 18rem;
+                    font-size: 13px;
+                    color: #85d8ba;
                 }
                 .social-media {
                     margin-top: 20px;
