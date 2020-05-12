@@ -28,6 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule, MatExpansionModule } from '@angular/material';
 import { AboutComponent } from './components/about/about.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AboutComponent } from './components/about/about.component';
     GoogleMapComponent,
     SearchLocationComponent,
     AboutComponent,
+    ForgotPasswordComponent,
 
   ],
   imports: [
