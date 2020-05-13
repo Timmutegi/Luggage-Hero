@@ -19,6 +19,7 @@ export class ErrorHandlingService {
     } else {
       // Server-side errors
       errorMessage = `${error.error.details}`;
+      // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     // window.alert(errorMessage);
     this.flashMessage.show(errorMessage, {cssClass: 'alert-danger rounded-0', timeout: 10000});
