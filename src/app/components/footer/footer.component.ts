@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { ErrorHandlingService } from '../../services/error-handling.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,11 @@ export class FooterComponent implements OnInit {
   submitted = false;
   clicked = false;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private flashMessage: FlashMessagesService) { }
+  constructor(private formBuilder: FormBuilder,
+              private api: ApiService,
+              private flashMessage: FlashMessagesService,
+              private errorHandler: ErrorHandlingService
+          ) { }
 
   ngOnInit() {
     this.subscribeForm = this.formBuilder.group({
@@ -45,6 +50,7 @@ export class FooterComponent implements OnInit {
       },
       err => {
         this.clicked = false;
+        this.errorHandler.handleError(err);
       }
     );
   }
