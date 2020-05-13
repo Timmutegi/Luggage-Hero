@@ -3,14 +3,25 @@
     min-height: 90vh;
     .container {
         padding-top: 60px;
-        .display-4 {
-            color: #85d8ba;
-        }
-        .lead {
-            color: white;
+        .google {
+            margin-top: 30px;
+            button {
+                border-radius: 0px;
+                border: 0px;
+                background-color: #820263;
+                font-weight: bold;
+                font-size: 13px;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            p {
+                color: white;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 0px;
+            }
         }
         form {
-            margin-top: 20px;
             margin-bottom: 80px;
             .flash {
                 font-size: 13px;
@@ -55,7 +66,7 @@
                 font-size: 13px;
                 margin-top: 20px;
                 span {
-                    color: #9B5DE5;
+                    color: lightblue;
                 }
                 span:hover {
                     text-decoration: underline;
@@ -67,7 +78,7 @@
                 color: white;
                 font-size: 11px;
                 span {
-                    color: #9B5DE5;
+                    color: lightblue;
                 }
                 span:hover {
                     text-decoration: underline;
