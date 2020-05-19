@@ -1,13 +1,10 @@
 .Navbar {
     background-color: #182a50;
     display: flex;
+    align-items: center;
     padding: 16px;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    button {
-        font-size: 13px;
-        border-radius: 0px;
-    }
     a {
         color: white;
         font-weight: bold;
@@ -17,8 +14,8 @@
         text-decoration: none;
         color: #85d8ba;
     }
-    .active-link {
-        color: black !important;
+    .active {
+        color: #85d8ba;
     }
 }
 
