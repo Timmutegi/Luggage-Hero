@@ -1,30 +1,50 @@
-.about {
+.about1 {
     min-height: 80vh;
     .jumbotron {
         background-color: white;
-        hr {
-            border: 1px solid black;
-        }
-        .content {
-            display: flex;
-            .content1 {
-                padding-top: 40px;
-            }
-            .content2 {
-                img {
-                    width: 250px;
-                    height: 250px;            
+        .container {
+            .row1 {
+                display: flex;
+                .column1 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    .display-4 {
+                        color: black;
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                    .lead {
+                        font-family: 'Lato', sans-serif;
+                        color: #820363;
+                    }
                 }
-            }        
+                .column2 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .row2 {
+                width: 75%;
+                margin: 0 auto;
+                .content1 {
+                    margin-top: 50px;
+                    text-align: center;
+                    hr {
+                        border: 1px solid #182a50;
+                    }
+                }
+            }
         }
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .content {
-        flex-direction: column;
-        .content1 {
-            padding-top: 0px !important;
-        }
-    }
+    // .content {
+    //     flex-direction: column;
+    //     .content1 {
+    //         padding-top: 0px !important;
+    //     }
+    // }
 }
