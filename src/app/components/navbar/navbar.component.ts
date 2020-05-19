@@ -22,10 +22,6 @@ export class NavbarComponent implements OnInit {
     navs.forEach(nav => nav.classList.toggle('Navbar-ToggleShow'));
   }
 
-  home() {
-    this.router.navigate(['/home']);
-  }
-
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
@@ -33,18 +29,6 @@ export class NavbarComponent implements OnInit {
     this.user = null;
     localStorage.removeItem('firstname');
     localStorage.removeItem('user');
-  }
-
-  login() {
-    this.router.navigate(['/login']);
-  }
-
-  signUp() {
-    this.router.navigate(['/signup']);
-  }
-
-  bookings() {
-    this.router.navigate(['bookings']);
   }
 
 }
