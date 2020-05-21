@@ -29,6 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule, MatExpansionModule } from '@angular/material';
 import { AboutComponent } from './components/about/about.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     SearchLocationComponent,
     AboutComponent,
     ForgotPasswordComponent,
+    ProfileComponent,
 
   ],
   imports: [
