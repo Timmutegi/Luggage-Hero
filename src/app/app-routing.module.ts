@@ -11,6 +11,7 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { SearchLocationComponent } from './components/search-location/search-location.component';
 import { AboutComponent } from './components/about/about.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'all', component: AllStoresComponent },
   { path: 'my-location/:LAT/:LONG', component: GoogleMapComponent },
   { path: 'location/:location', component: SearchLocationComponent }
