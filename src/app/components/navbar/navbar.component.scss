@@ -1,7 +1,6 @@
 .Navbar {
     background-color: #182a50;
     display: flex;
-    align-items: center;
     padding: 16px;
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -50,6 +49,7 @@
 
 .Navbar-Items {
     display: flex;
+    align-items: center;
 }
 
 .Navbar-Items--right {
@@ -81,6 +81,7 @@
     }
     .Navbar-Items {
         display: none;
+        align-items: flex-start;
     }
     .Navbar-Items--right {
         margin-left: 0;
