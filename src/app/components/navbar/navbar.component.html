@@ -14,20 +14,15 @@
         <div class="Navbar-Link">
             <a routerLink="/bookings" routerLinkActive="active">My Bookings</a>
         </div>
-        <div class="Navbar-Link">
-            <div class="dropdown">
-                <a routerLink="/profile" routerLinkActive="active" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <fa name="user-circle" size="lg"></fa> {{user | titlecase}}
-                    <fa name="caret-down"></fa>
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a *ngIf="!status" class="dropdown-item" routerLink="/login">Login</a>
-                    <a *ngIf="status" class="dropdown-item" (click)="logout()">Logout</a>
-                    <a *ngIf="!status" class="dropdown-item" routerLink="/signUp">Sign Up</a>
-                    <a *ngIf="status" class="dropdown-item" routerLink="/profile">Profile</a>
-                </div>
-            </div>
+        <div *ngIf="!status" class="Navbar-Link">
+            <a routerLink="/login">Login <fa name="sign-in"></fa></a>
+        </div>
+        <div *ngIf="status" class="Navbar-Link">
+            <a routerLink="/profile" routerLinkActive="active">
+                <fa name="user-circle" size="lg"></fa> {{user | titlecase}}</a>
+        </div>
+        <div *ngIf="status" class="Navbar-Link">
+            <a (click)="logout()">Logout <fa name="sign-out"></fa></a>
         </div>
     </nav>
 </div>
