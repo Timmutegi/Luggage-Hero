@@ -1,1 +1,35 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+<div class="profile">
+    <div class="container">
+        <div class="col-md-8">
+            <div class="card mb-3" style="min-height: 200px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <fa name="user-circle" size="4x"></fa>
+                        <a>Change Password</a>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div *ngIf="isLoading" class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div *ngIf="!isLoading" class="card-body">
+                            <h3 class="card-title">{{user?.firstname | titlecase}} {{user?.lastname | titlecase}}</h3>
+                            <hr>
+                            <p class="card-text">
+                                <fa name="envelope"></fa> {{user?.email}}</p>
+                            <p class="card-text">
+                                <fa name="mobile" size="lg"></fa> {{user?.phone}} </p>
+                            <button type="button" class="btn btn-info">Logout</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>
