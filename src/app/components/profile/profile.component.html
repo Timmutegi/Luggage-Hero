@@ -5,9 +5,10 @@
             <div class="card mb-3" style="min-height: 200px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <fa name="user-circle" size="4x"></fa>
-                        <a>Change Password</a>
-
+                        <div class="avatar">
+                            <fa name="user-circle" size="4x"></fa>
+                        </div>
+                        <button type="button" (click)="logout()" class="btn btn-secondary">Logout <fa name="sign-out"></fa></button>
                     </div>
                     <div class="col-md-8">
                         <div *ngIf="isLoading" class="d-flex justify-content-center">
@@ -15,6 +16,7 @@
                                 <span class="sr-only">Loading...</span>
                             </div>
                         </div>
+
                         <div *ngIf="!isLoading" class="card-body">
                             <h3 class="card-title">{{user?.firstname | titlecase}} {{user?.lastname | titlecase}}</h3>
                             <hr>
@@ -22,14 +24,37 @@
                                 <fa name="envelope"></fa> {{user?.email}}</p>
                             <p class="card-text">
                                 <fa name="mobile" size="lg"></fa> {{user?.phone}} </p>
-                            <button type="button" class="btn btn-info">Logout</button>
-
+                            <p class="card-text">
+                                <fa name="lock"></fa> <a *ngIf="!show" (click)="toggle()"> Change Password</a> <a *ngIf="show" (click)="toggle()"> Hide Password Change</a>
+                            </p>
+                            <div *ngIf="show" class="change-password">
+                                <form [formGroup]="passwordForm">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="Current Password">Current Password</label>
+                                            <input type="password" class="form-control" formControlName="oldPassword" [ngClass]="{ 'is-invalid': submitted && f.oldPassword.errors}" autofocus>
+                                            <div *ngIf="submitted && f.oldPassword.errors" class="invalid-feedback">
+                                                <div *ngIf="f.oldPassword.errors.required">Current password is required</div>
+                                                <div *ngIf="f.oldPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="New Password">New Password</label>
+                                            <input type="password" class="form-control" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors}">
+                                            <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
+                                                <div *ngIf="f.newPassword.errors.required">New password is required</div>
+                                                <div *ngIf="f.newPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-info">Change Password</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <app-footer></app-footer>

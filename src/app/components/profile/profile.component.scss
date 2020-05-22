@@ -14,27 +14,56 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                a {
-                    margin-top: 10px;
-                    font-size: 13px;
-                    color: #0073bd;
-                    cursor: pointer;
-                }
-                a:hover {
-                    color: blue;
-                    text-decoration: underline;
+                .avatar {
+                    padding: 30px;
                 }
             }
+            a {
+                font-size: 13px;
+                color: #0073bd;
+                cursor: pointer;
+            }
+            a:hover {
+                color: black;
+                text-decoration: underline;
+            }
+            .spinner-border {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
             .d-flex {
-                margin-top: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 80px;
             }
             hr {
                 border: 1px solid black;
             }
+            .card-text {
+                a {
+                    font-size: 13px;
+                }
+            }
             button {
-                margin-top: 20px;
+                margin-top: 10px;
                 font-size: 13px;
                 border-radius: 0px;
+            }
+            form {
+                margin-top: 20px;
+                label {
+                    font-size: 13px;
+                }
+                input {
+                    border-radius: 0px;
+                    font-size: 13px;
+                }
+                input[type="password"] {
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
             }
         }
     }
@@ -50,7 +79,7 @@
             width: 18rem;
             text-align: center;
             .col-md-4 {
-                fa {
+                .avatar {
                     padding: 30px;
                 }
             }
