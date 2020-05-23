@@ -9,6 +9,10 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
+  google(endpoint: string) {
+    return this.http.get<any>(this.baseUrl + endpoint);
+  }
+
   login(endpoint: string, data: JSON) {
     return this.http.post<any>(this.baseUrl + endpoint, data);
   }
