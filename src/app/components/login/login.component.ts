@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   isLoading: boolean;
+  fieldTextType: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,7 +56,16 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  toggle() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
   google() {
+    this.api.google('/auth').subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
 }

@@ -37,14 +37,22 @@
                 font-size: 13px;
                 border: 0px;
             }
+            input[type="text"]:focus,
             input[type="email"]:focus,
             input[type="password"]:focus {
                 background-color: #e7e4f0;
             }
+            input[type="text"],
             input[type="email"],
             input[type="password"] {
                 outline: none !important;
                 box-shadow: none !important;
+            }
+            .input-group-text {
+                padding: 0.23rem 0.5rem 0.23rem 0.5rem;
+                fa {
+                    cursor: pointer;
+                }
             }
             button {
                 border-radius: 0px;

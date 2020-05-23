@@ -34,11 +34,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">Password is required</div>
-                                <div *ngIf="f.password.errors.minlength">Password should be at least 6 characters</div>
+                            <div class="input-group">
+                                <input [type]="fieldTextType? 'text' : 'password'" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <fa *ngIf="fieldTextType" name="eye" (click)="toggle()"></fa>
+                                        <fa *ngIf="!fieldTextType" name="eye-slash" (click)="toggle()"></fa>
+                                    </span>
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password should be at least 6 characters</div>
+                                </div>
+
                             </div>
+
                             <p class="forgot" routerLink="/forgot-password"><span>Forgot Password?</span></p>
                         </div>
                     </div>
