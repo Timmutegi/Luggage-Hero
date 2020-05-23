@@ -50,6 +50,8 @@
                 margin-top: 10px;
                 font-size: 13px;
                 border-radius: 0px;
+                outline: none !important;
+                box-shadow: none !important;
             }
             form {
                 margin-top: 20px;
@@ -66,7 +68,10 @@
                     box-shadow: none !important;
                 }
                 .input-group-text {
-                    padding: 0.23rem;
+                    padding: 0.23rem 0.5rem 0.23rem 0.5rem;
+                    fa {
+                        cursor: pointer;
+                    }
                 }
                 .invalid-feedback {
                     font-size: 11px;
