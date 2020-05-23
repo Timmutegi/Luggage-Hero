@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   submitted = false;
   isLoading: boolean;
+  fieldTextType: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,5 +55,9 @@ export class SignUpComponent implements OnInit {
         this.errorHandler.handleError(err);
       }
     );
+  }
+
+  toggle() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }
