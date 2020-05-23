@@ -32,22 +32,41 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="Current Password">Current Password</label>
-                                            <input type="password" class="form-control" formControlName="oldPassword" [ngClass]="{ 'is-invalid': submitted && f.oldPassword.errors}" autofocus>
-                                            <div *ngIf="submitted && f.oldPassword.errors" class="invalid-feedback">
-                                                <div *ngIf="f.oldPassword.errors.required">Current password is required</div>
-                                                <div *ngIf="f.oldPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                            <div class="input-group">
+                                                <input [type]="oldFieldTextType? 'text' : 'password'" class="form-control" formControlName="oldPassword" [ngClass]="{ 'is-invalid': submitted && f.oldPassword.errors}" autofocus>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <fa *ngIf="oldFieldTextType" name="eye" (click)="toggleOldFieldTextType()"></fa>
+                                                        <fa *ngIf="!oldFieldTextType" name="eye-slash" (click)="toggleOldFieldTextType()"></fa>
+                                                    </span>
+                                                </div>
+                                                <div *ngIf="submitted && f.oldPassword.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.oldPassword.errors.required">Current password is required</div>
+                                                    <div *ngIf="f.oldPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                                </div>
                                             </div>
+
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="New Password">New Password</label>
-                                            <input type="password" class="form-control" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors}">
-                                            <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
-                                                <div *ngIf="f.newPassword.errors.required">New password is required</div>
-                                                <div *ngIf="f.newPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                            <div class="input-group">
+                                                <input [type]="newFieldTextType? 'text' : 'password'" class="form-control" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors}">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                            <fa *ngIf="newFieldTextType" name="eye" (click)="toggleNewFieldTextType()"></fa>
+                                                            <fa *ngIf="!newFieldTextType" name="eye-slash" (click)="toggleNewFieldTextType()"></fa>
+                                                        </span>
+                                                </div>
+                                                <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.newPassword.errors.required">New password is required</div>
+                                                    <div *ngIf="f.newPassword.errors.minlength">Must be a minimum of 6 characters</div>
+                                                </div>
+
                                             </div>
+
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-info">Change Password</button>
+                                    <button type="button" (click)="changePassword()" class="btn btn-info">Change Password</button>
                                 </form>
                             </div>
                         </div>

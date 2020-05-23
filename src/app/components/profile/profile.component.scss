@@ -60,9 +60,16 @@
                     border-radius: 0px;
                     font-size: 13px;
                 }
+                input[type="text"],
                 input[type="password"] {
                     outline: none !important;
                     box-shadow: none !important;
+                }
+                .input-group-text {
+                    padding: 0.23rem;
+                }
+                .invalid-feedback {
+                    font-size: 11px;
                 }
             }
         }

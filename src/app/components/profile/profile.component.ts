@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit {
   isLoading = true;
   show: boolean;
   status: string;
+  oldFieldTextType: boolean;
+  newFieldTextType: boolean;
 
   constructor(private api: ApiService, private formBuilder: FormBuilder, private router: Router) { }
 
@@ -47,6 +49,14 @@ export class ProfileComponent implements OnInit {
     this.show = !this.show;
   }
 
+  toggleOldFieldTextType() {
+    this.oldFieldTextType = !this.oldFieldTextType;
+  }
+
+  toggleNewFieldTextType() {
+    this.newFieldTextType = !this.newFieldTextType;
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/home']);
@@ -54,6 +64,14 @@ export class ProfileComponent implements OnInit {
     this.user = null;
     localStorage.removeItem('firstname');
     localStorage.removeItem('user');
+  }
+
+  changePassword() {
+    this.submitted = true;
+
+    if (this.passwordForm.invalid) {
+      return;
+    }
   }
 
 }
