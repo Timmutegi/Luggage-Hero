@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorHandlingService } from '../../services/error-handling.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 @Component({
   selector: 'app-profile',
@@ -19,13 +22,19 @@ export class ProfileComponent implements OnInit {
   oldFieldTextType: boolean;
   newFieldTextType: boolean;
 
-  constructor(private api: ApiService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private api: ApiService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private errorHandler: ErrorHandlingService,
+    private flashMessage: FlashMessagesService
+  ) { }
 
   ngOnInit() {
     this.status = localStorage.getItem('user');
     this.getUser();
     this.passwordForm = this.formBuilder.group({
-      oldPassword: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       newPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -72,6 +81,21 @@ export class ProfileComponent implements OnInit {
     if (this.passwordForm.invalid) {
       return;
     }
+    console.log(this.passwordForm.value);
+
+    this.api.patch('/users/password/' + this.Id, this.passwordForm.value).subscribe(
+      res => {
+        console.log(res);
+        if (res.code === 200) {
+          this.submitted = false;
+          this.passwordForm.reset();
+          this.flashMessage.show(res.message, {cssClass: 'alert-success rounded-0', timeout: 10000});
+        }
+      },
+      err => {
+        this.errorHandler.handleError(err);
+      }
+    );
   }
 
 }

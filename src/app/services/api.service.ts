@@ -32,4 +32,8 @@ export class ApiService {
   post(endpoint: string, data: JSON) {
     return this.http.post<any>(this.baseUrl + endpoint, data);
   }
+
+  patch(endpoint: string, data: JSON) {
+    return this.http.patch<any>(this.baseUrl + endpoint, data);
+  }
 }
