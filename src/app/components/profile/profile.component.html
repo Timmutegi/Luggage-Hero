@@ -53,9 +53,9 @@
                                                 <input [type]="newFieldTextType? 'text' : 'password'" class="form-control" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors}">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
-                                                            <fa *ngIf="newFieldTextType" name="eye" (click)="toggleNewFieldTextType()"></fa>
-                                                            <fa *ngIf="!newFieldTextType" name="eye-slash" (click)="toggleNewFieldTextType()"></fa>
-                                                        </span>
+                                                        <fa *ngIf="newFieldTextType" name="eye" (click)="toggleNewFieldTextType()"></fa>
+                                                        <fa *ngIf="!newFieldTextType" name="eye-slash" (click)="toggleNewFieldTextType()"></fa>
+                                                    </span>
                                                 </div>
                                                 <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
                                                     <div *ngIf="f.newPassword.errors.required">New password is required</div>
@@ -67,7 +67,9 @@
                                     <div class="flash">
                                         <flash-messages></flash-messages>
                                     </div>
-                                    <button type="button" (click)="changePassword()" class="btn btn-info">Change Password</button>
+                                    <button type="button" [disabled]="isProgress" (click)="changePassword()" class="btn btn-info btn-block">Change Password
+                                        <span *ngIf="isProgress" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    </button>
                                 </form>
                             </div>
                         </div>

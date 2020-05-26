@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   Id: string;
   user: any;
   isLoading = true;
+  isProgress: boolean;
   show: boolean;
   status: string;
   oldFieldTextType: boolean;
@@ -81,18 +82,19 @@ export class ProfileComponent implements OnInit {
     if (this.passwordForm.invalid) {
       return;
     }
-    console.log(this.passwordForm.value);
+    this.isProgress = true;
 
     this.api.patch('/users/password/' + this.Id, this.passwordForm.value).subscribe(
       res => {
-        console.log(res);
         if (res.code === 200) {
           this.submitted = false;
           this.passwordForm.reset();
+          this.isProgress = false;
           this.flashMessage.show(res.message, {cssClass: 'alert-success rounded-0', timeout: 10000});
         }
       },
       err => {
+        this.isProgress = false;
         this.errorHandler.handleError(err);
       }
     );
