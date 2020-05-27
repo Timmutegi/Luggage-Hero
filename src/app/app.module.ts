@@ -26,10 +26,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule, MatExpansionModule } from '@angular/material';
+import { MatInputModule, MatExpansionModule, MatTabsModule } from '@angular/material';
 import { AboutComponent } from './components/about/about.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ActiveBookingsComponent } from './components/active-bookings/active-bookings.component';
+import { PendingBookingsComponent } from './components/pending-bookings/pending-bookings.component';
+import { CompletedBookingsComponent } from './components/completed-bookings/completed-bookings.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AboutComponent,
     ForgotPasswordComponent,
     ProfileComponent,
+    ActiveBookingsComponent,
+    PendingBookingsComponent,
+    CompletedBookingsComponent,
 
   ],
   imports: [
@@ -63,6 +69,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatNativeDateModule,
     MatInputModule,
     MatExpansionModule,
+    MatTabsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBppYSp87gzh7a2dZ-ouFlYVY49dwKdRD4',
     }),
