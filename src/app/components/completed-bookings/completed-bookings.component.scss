@@ -1,0 +1,28 @@
+.spinner-border {
+    margin-top: 50px;
+}
+
+mat-expansion-panel {
+    margin-top: 20px;
+    border-radius: 0px;
+    margin-bottom: 5px;
+    .row {
+        margin-bottom: 10px;
+        .col-md-6 {
+            span {
+                font-weight: bold;
+            }
+        }
+        agm-map {
+            height: 400px;
+        }
+        button {
+            border-radius: 0px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            border: 0px;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    }
+}
