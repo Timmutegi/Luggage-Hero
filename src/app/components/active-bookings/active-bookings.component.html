@@ -1,0 +1,52 @@
+<div *ngIf="isLoading === true" class="text-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let booking of pendingBookings">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{booking?.shop?.name}} - {{booking?.date | date : 'fullDate'}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-body">
+                    <p class="card-text"><span>Name : </span>{{booking?.shop?.name}}</p>
+                    <p class="card-text"><span>Location : </span>{{booking?.shop?.location}}</p>
+                    <p class="card-text"><span>Email : </span>{{booking?.shop?.email}}</p>
+                    <p class="card-text"><span>Phone : </span>{{booking?.shop?.phone}}</p>
+                    <p class="card-text"><span>Capacity : </span>{{booking?.shop?.capacity}}</p>
+                    <p class="card-text"><span>Status : </span>{{booking?.status}}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <p class="card-text"><span>Date Booked : </span></p>
+                    <p class="card-text">{{booking?.date | date : 'fullDate'}}</p>
+                    <p class="card-text"><span>Check in Time : </span></p>
+                    <p class="card-text">{{booking?.check_in | date : 'EEE, MMM d, h:mm:ss'}}</p>
+                    <p class="card-text"><span>Duration : </span></p>
+                    <p class="card-text">{{booking?.duration}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="card-body">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" (click)="getDirections(booking.shop.latitude, booking.shop.longitude)">
+                    Get Directions
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <agm-map [zoom]="7">
+                        <agm-marker [latitude]="lat" [longitude]="lng">
+                            <agm-direction *ngFor="let dir of directions" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+                        </agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+</mat-accordion>
