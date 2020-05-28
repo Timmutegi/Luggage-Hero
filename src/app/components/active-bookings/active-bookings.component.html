@@ -3,8 +3,11 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+<div *ngIf="message" class="alert alert-info rounded-0" role="alert">
+    {{message}}
+</div>
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let booking of pendingBookings">
+    <mat-expansion-panel *ngFor="let booking of activeBookings">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 {{booking?.shop?.name}} - {{booking?.date | date : 'fullDate'}}

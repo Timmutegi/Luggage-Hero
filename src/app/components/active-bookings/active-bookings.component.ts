@@ -7,7 +7,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./active-bookings.component.scss']
 })
 export class ActiveBookingsComponent implements OnInit {
-  pendingBookings: any;
+  activeBookings: any;
   isLoading = true;
   directions: any = [];
   lat: number;
@@ -28,16 +28,16 @@ export class ActiveBookingsComponent implements OnInit {
 
   getBookings() {
     const user = localStorage.getItem('user');
-    this.api.get('/booking/customer/' + user).subscribe(
+    this.api.get('/booking/customer/active/' + user).subscribe(
       res => {
-        if (res === undefined || res.length === 0) {
-          this.message = 'You have not booked yet';
+        if (res.length === 0) {
+          this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';
         }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
         });
-        this.pendingBookings = res;
+        this.activeBookings = res;
         this.isLoading = false;
       },
 
