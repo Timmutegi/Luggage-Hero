@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   isLoading: boolean;
   fieldTextType: boolean;
+  progress: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
