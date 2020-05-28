@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-completed-bookings',
@@ -7,14 +8,14 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./completed-bookings.component.scss']
 })
 export class CompletedBookingsComponent implements OnInit {
-  pendingBookings: any;
+  completedBookings: any;
   isLoading = true;
   directions: any = [];
   lat: number;
   lng: number;
   message: string;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,16 +28,15 @@ export class CompletedBookingsComponent implements OnInit {
 
   getBookings() {
     const user = localStorage.getItem('user');
-    this.api.get('/booking/customer/' + user).subscribe(
+    this.api.get('/booking/customer/completed/' + user).subscribe(
       res => {
         if (res === undefined || res.length === 0) {
-          this.message = 'You have not booked yet';
-        }
+          this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';       }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
         });
-        this.pendingBookings = res;
+        this.completedBookings = res;
         this.isLoading = false;
       },
     );
