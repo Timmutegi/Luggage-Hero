@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-pending-bookings',
@@ -14,7 +15,7 @@ export class PendingBookingsComponent implements OnInit {
   lng: number;
   message: string;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,10 +28,10 @@ export class PendingBookingsComponent implements OnInit {
 
   getBookings() {
     const user = localStorage.getItem('user');
-    this.api.get('/booking/customer/' + user).subscribe(
+    this.api.get('/booking/customer/pending/' + user).subscribe(
       res => {
         if (res === undefined || res.length === 0) {
-          this.message = 'You have not booked yet';
+          this.message = 'You have not yet made any bookings';
         }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
