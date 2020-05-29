@@ -61,15 +61,15 @@
         }
     }
     input[type="text"] {
-        width: 20em !important;
+        width: 60vw !important;
         font-size: 10px !important;
     }
-    h1 {
+    .display-4 {
         margin-top: 30px;
-        font-size: 30px;
+        font-size: 6vw;
     }
-    p {
-        font-size: 11px;
+    .lead {
+        font-size: 3.5vw;
     }
     .btn-success {
         margin-right: 20px !important;
