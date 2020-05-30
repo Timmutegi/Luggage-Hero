@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bookings',
@@ -6,11 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookings.component.scss']
 })
 export class BookingsComponent implements OnInit {
-
+  pending: Subject<boolean> = new Subject<boolean>();
+  active: Subject<boolean> = new Subject<boolean>();
+  completed: Subject<boolean> = new Subject<boolean>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  tabChanged(tabChangeEvent: MatTabChangeEvent) {
+    // console.log(tabChangeEvent.index);
+    // this.refresh.next(true);
+    if (tabChangeEvent.index === 0) {
+      this.pending.next(true);
+    }
+    if (tabChangeEvent.index === 1) {
+      this.active.next(true);
+    }
+    if (tabChangeEvent.index === 2) {
+      this.completed.next(true);
+    }
   }
 
 }

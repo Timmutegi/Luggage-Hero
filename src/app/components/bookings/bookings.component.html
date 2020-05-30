@@ -4,21 +4,21 @@
         <h1>Bookings :</h1>
         <div class="alert alert-info" role="alert">
             <ul>
-                N/B
+                Terms & Conditions
                 <li>You have to check in at the shop you have booked before the end of day of the date you have booked.</li>
                 <li>You have to adhere to the working hours of the shop.</li>
                 <li>If you fail to do so, your booking will be automatically cancelled.</li>
             </ul>
         </div>
-        <mat-tab-group>
+        <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
             <mat-tab label="Pending">
-                <app-pending-bookings></app-pending-bookings>
+                <app-pending-bookings [pending]="pending.asObservable()"></app-pending-bookings>
             </mat-tab>
             <mat-tab label="Active">
-                <app-active-bookings></app-active-bookings>
+                <app-active-bookings [active]="active.asObservable()"></app-active-bookings>
             </mat-tab>
             <mat-tab label="Completed">
-                <app-completed-bookings></app-completed-bookings>
+                <app-completed-bookings [completed]="completed.asObservable()"></app-completed-bookings>
             </mat-tab>
         </mat-tab-group>
     </div>
