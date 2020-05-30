@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-pending-bookings',
@@ -14,6 +15,8 @@ export class PendingBookingsComponent implements OnInit {
   lat: number;
   lng: number;
   message: string;
+  @Input() pending: Subject<boolean> = new Subject<boolean>();
+
 
   constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
 
@@ -24,6 +27,13 @@ export class PendingBookingsComponent implements OnInit {
     });
 
     this.getBookings();
+    this.pending.subscribe(
+      res => {
+        if (res) {
+          this.getBookings();
+        }
+      }
+    );
   }
 
   getBookings() {

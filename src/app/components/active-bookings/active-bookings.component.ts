@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-active-bookings',
@@ -13,6 +14,8 @@ export class ActiveBookingsComponent implements OnInit {
   lat: number;
   lng: number;
   message: string;
+  @Input() active: Subject<boolean> = new Subject<boolean>();
+
 
   constructor(private api: ApiService) { }
 
@@ -23,7 +26,14 @@ export class ActiveBookingsComponent implements OnInit {
       this.lat = position.coords.latitude;
     });
 
-    this.getBookings();
+    // this.getBookings();
+    this.active.subscribe(
+      res => {
+        if (res) {
+          this.getBookings();
+        }
+      }
+    );
   }
 
   getBookings() {
@@ -43,6 +53,7 @@ export class ActiveBookingsComponent implements OnInit {
 
     );
   }
+
   getDirections(latitude: number, longitude: number) {
     const directions = {
       origin: {

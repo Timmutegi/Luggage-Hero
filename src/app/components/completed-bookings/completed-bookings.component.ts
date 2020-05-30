@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-completed-bookings',
@@ -14,6 +15,8 @@ export class CompletedBookingsComponent implements OnInit {
   lat: number;
   lng: number;
   message: string;
+  @Input() completed: Subject<boolean> = new Subject<boolean>();
+
 
   constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
 
@@ -23,7 +26,14 @@ export class CompletedBookingsComponent implements OnInit {
       this.lat = position.coords.latitude;
     });
 
-    this.getBookings();
+    // this.getBookings();
+    this.completed.subscribe(
+      res => {
+        if (res) {
+          this.getBookings();
+        }
+      }
+    );
   }
 
   getBookings() {
