@@ -5,13 +5,12 @@
             <div class="col-md-12">
                 <div class="form-row google">
                     <div class="col-md-4">
-                        <button type="submit" (click)="google()" [disabled]="progress" class="btn btn-primary btn-block">LOGIN WITH GOOGLE 
+                        <button type="submit" (click)="google()" [disabled]="!progress" class="btn btn-primary btn-block">LOGIN WITH GOOGLE 
                             <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
                         </button>
                         <p>OR</p>
                     </div>
                 </div>
-
 
                 <form [formGroup]="loginForm">
                     <div class="form-row">
