@@ -6,7 +6,7 @@
                 <h6>Subscribe to our newsletter to get updates.</h6>
                 <form [formGroup]="subscribeForm">
                     <div class="form-group row">
-                        <input type="email" class="form-control" formControlName="email" placeholder="Enter Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                             <div *ngIf="f.email.errors.required">Email is required</div>
                             <div *ngIf="f.email.errors.pattern">Input a valid email</div>
