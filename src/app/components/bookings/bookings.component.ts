@@ -18,8 +18,6 @@ export class BookingsComponent implements OnInit {
   }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent) {
-    // console.log(tabChangeEvent.index);
-    // this.refresh.next(true);
     if (tabChangeEvent.index === 0) {
       this.pending.next(true);
     }

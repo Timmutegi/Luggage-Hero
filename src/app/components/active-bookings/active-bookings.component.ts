@@ -40,9 +40,6 @@ export class ActiveBookingsComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.api.get('/booking/customer/active/' + user).subscribe(
       res => {
-        if (res.length === 0) {
-          this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';
-        }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
@@ -50,8 +47,12 @@ export class ActiveBookingsComponent implements OnInit {
         this.activeBookings = res;
         this.isLoading = false;
       },
-
     );
+
+    if (this.activeBookings.length === 0) {
+      console.log(this.activeBookings.length);
+      this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';
+    }
   }
 
   getDirections(latitude: number, longitude: number) {
