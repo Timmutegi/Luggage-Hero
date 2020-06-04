@@ -3,8 +3,8 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<div *ngIf="message" class="alert alert-info rounded-0" role="alert">
-    {{message}}
+<div *ngIf="pendingBookings.length === 0" class="alert alert-info rounded-0" role="alert">
+    You Do not have any abookings yet.
 </div>
 
 <mat-accordion>

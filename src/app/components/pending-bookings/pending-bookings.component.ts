@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -9,7 +8,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./pending-bookings.component.scss']
 })
 export class PendingBookingsComponent implements OnInit {
-  pendingBookings: any;
+  pendingBookings: [];
   isLoading = true;
   directions: any = [];
   lat: number;
@@ -18,7 +17,7 @@ export class PendingBookingsComponent implements OnInit {
   @Input() pending: Subject<boolean> = new Subject<boolean>();
 
 
-  constructor(private api: ApiService, private flashMessage: FlashMessagesService) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -40,9 +39,6 @@ export class PendingBookingsComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.api.get('/booking/customer/pending/' + user).subscribe(
       res => {
-        if (res === undefined || res.length === 0) {
-          this.message = 'You have not yet made any bookings';
-        }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
