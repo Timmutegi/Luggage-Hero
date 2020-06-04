@@ -4,10 +4,12 @@
         <h1>Bookings :</h1>
         <div class="alert alert-info" role="alert">
             <ul>
-                Terms & Conditions
+                <h3>Note:</h3>
                 <li>You have to check in at the shop you have booked before the end of day of the date you have booked.</li>
                 <li>You have to adhere to the working hours of the shop.</li>
                 <li>If you fail to do so, your booking will be automatically cancelled.</li>
+                <li>The status of your booking will be "pending" until you check in at the shop.</li>
+                <li>Once you check in, the status changes to "active" and when you pay and check out, it will chaange to "completed".</li>
             </ul>
         </div>
         <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
