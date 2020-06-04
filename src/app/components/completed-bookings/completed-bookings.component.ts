@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./completed-bookings.component.scss']
 })
 export class CompletedBookingsComponent implements OnInit {
-  completedBookings: any;
+  completedBookings: [];
   isLoading = true;
   directions: any = [];
   lat: number;
@@ -40,8 +40,6 @@ export class CompletedBookingsComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.api.get('/booking/customer/completed/' + user).subscribe(
       res => {
-        if (res === undefined || res.length === 0) {
-          this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';       }
         res.forEach((booking: any) => {
           booking.shop.longitude = parseFloat(booking.shop.longitude);
           booking.shop.latitude = parseFloat(booking.shop.latitude);
