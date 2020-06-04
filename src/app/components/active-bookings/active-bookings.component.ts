@@ -8,12 +8,11 @@ import { Subject } from 'rxjs';
   styleUrls: ['./active-bookings.component.scss']
 })
 export class ActiveBookingsComponent implements OnInit {
-  activeBookings: any;
+  activeBookings: [];
   isLoading = true;
   directions: any = [];
   lat: number;
   lng: number;
-  message: string;
   @Input() active: Subject<boolean> = new Subject<boolean>();
 
 
@@ -26,7 +25,6 @@ export class ActiveBookingsComponent implements OnInit {
       this.lat = position.coords.latitude;
     });
 
-    // this.getBookings();
     this.active.subscribe(
       res => {
         if (res) {
@@ -48,11 +46,6 @@ export class ActiveBookingsComponent implements OnInit {
         this.isLoading = false;
       },
     );
-
-    if (this.activeBookings.length === 0) {
-      console.log(this.activeBookings.length);
-      this.message = 'You do not have active bookings. Once you book and check in, your booking will become active.';
-    }
   }
 
   getDirections(latitude: number, longitude: number) {
