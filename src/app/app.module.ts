@@ -17,7 +17,6 @@ import { DetailsComponent } from './components/details/details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BookingsComponent } from './components/bookings/bookings.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllStoresComponent } from './components/all-stores/all-stores.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -33,6 +32,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ActiveBookingsComponent } from './components/active-bookings/active-bookings.component';
 import { PendingBookingsComponent } from './components/pending-bookings/pending-bookings.component';
 import { CompletedBookingsComponent } from './components/completed-bookings/completed-bookings.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,6 @@ import { CompletedBookingsComponent } from './components/completed-bookings/comp
     FooterComponent,
     DetailsComponent,
     BookingsComponent,
-    NavbarComponent,
     AllStoresComponent,
     GoogleMapComponent,
     SearchLocationComponent,
@@ -54,6 +53,7 @@ import { CompletedBookingsComponent } from './components/completed-bookings/comp
     ActiveBookingsComponent,
     PendingBookingsComponent,
     CompletedBookingsComponent,
+    NavComponent,
 
   ],
   imports: [
