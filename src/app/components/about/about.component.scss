@@ -2,13 +2,14 @@
     min-height: 80vh;
     .jumbotron {
         background-color: white;
+        padding-top: 0px;
         .container {
             .row1 {
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 .column1 {
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
                     flex-direction: column;
                     .display-4 {
                         color: black;
