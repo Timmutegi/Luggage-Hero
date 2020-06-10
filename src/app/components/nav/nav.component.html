@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="/assets/images/Navbar Logo.png" height="30" alt="bluewave logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <fa name="bars"></fa>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+                <a class="nav-item nav-link" routerLink="/bookings" routerLinkActive="active">Bookings</a>
+                <a *ngIf="!status" class="nav-item nav-link" routerLink="/login">Login <fa name="sign-in"></fa></a>
+                <a *ngIf="status" class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">
+                    <fa name="user-circle" size="lg"></fa> {{user | titlecase}}
+                </a>
+                <a *ngIf="status" class="nav-item nav-link" (click)="logout()" routerLink="/home">Logout <fa name="sign-out">
+                        </fa></a>
+            </div>
+        </div>
+
+    </div>
+
+</nav>

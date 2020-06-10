@@ -1,0 +1,23 @@
+.navbar {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #182a50 !important;
+    .navbar-brand {
+        color: #0073bd !important;
+    }
+    .ml-auto {
+        font-size: 13px;
+        .nav-link {
+            padding-right: 30px;
+            color: white;
+        }
+    }
+    button {
+        border: 0px;
+    }
+    .navbar-toggler-icon {
+        color: white !important;
+    }
+    fa {
+        color: white;
+    }
+}
