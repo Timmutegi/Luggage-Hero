@@ -14,8 +14,9 @@
                 <a *ngIf="status" class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">
                     <fa name="user-circle" size="lg"></fa> {{user | titlecase}}
                 </a>
-                <a *ngIf="status" class="nav-item nav-link" (click)="logout()" routerLink="/home">Logout <fa name="sign-out">
-                        </fa></a>
+                <a *ngIf="status" class="nav-item nav-link" (click)="logout()" routerLink="/home">Logout 
+                    <fa name="sign-out"></fa>
+                </a>
             </div>
         </div>
 
