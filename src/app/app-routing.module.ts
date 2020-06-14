@@ -12,6 +12,7 @@ import { SearchLocationComponent } from './components/search-location/search-loc
 import { AboutComponent } from './components/about/about.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BookingSuccessComponent } from './components/booking-success/booking-success.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'about', component: AboutComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'status/:bookingID', component: BookingSuccessComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'all', component: AllStoresComponent },
