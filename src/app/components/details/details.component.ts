@@ -158,7 +158,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   }
 
   confirm(ID: string) {
-    console.log(this.date);
     const user = localStorage.getItem('user');
     const booking = JSON.parse(JSON.stringify(
       {
@@ -170,8 +169,8 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     ));
     this.api.post('/booking/create', booking).subscribe(
       res => {
-        console.log(res);
-        this.router.navigate(['/bookings']);
+        const bookingID = res.savedBooking._id;
+        this.router.navigate([`status/${bookingID}`]);
       }
     );
   }
