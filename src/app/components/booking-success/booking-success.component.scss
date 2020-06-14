@@ -1,0 +1,32 @@
+.success {
+    min-height: 80vh;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .card {
+            margin-top: 40px;
+            border-radius: 0px;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            .card-title {
+                font-family: 'Montserrat', sans-serif;
+            }
+            .card-text {
+                font-size: 13px;
+            }
+            hr {
+                border: 1px solid #182a50;
+            }
+            span {
+                font-weight: bold;
+                font-family: 'Lato', sans-serif;
+            }
+            button {
+                margin-top: 20px;
+                border-radius: 0px;
+                font-size: 13px;
+            }
+        }
+    }
+}
