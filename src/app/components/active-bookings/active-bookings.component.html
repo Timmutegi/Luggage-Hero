@@ -1,9 +1,9 @@
-<div *ngIf="isLoading === true" class="text-center">
+<div *ngIf="isLoading" class="text-center">
     <div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<div *ngIf="activeBookings.length === 0" class="alert alert-info rounded-0" role="alert">
+<div *ngIf="activeBookings?.length === 0" class="alert alert-info rounded-0" role="alert">
     You do not have active bookings.
 </div>
 <mat-accordion>
