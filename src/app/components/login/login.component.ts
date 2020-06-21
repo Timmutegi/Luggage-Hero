@@ -62,9 +62,15 @@ export class LoginComponent implements OnInit {
   }
 
   google() {
-    this.api.google('/auth').subscribe(
+    this.progress = true;
+    this.api.get('/user/google').subscribe(
       res => {
         console.log(res);
+        this.progress = false;
+      },
+      err => {
+        console.log(err);
+        this.progress = false;
       }
     );
   }
