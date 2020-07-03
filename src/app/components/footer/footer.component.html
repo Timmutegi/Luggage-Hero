@@ -1,31 +1,31 @@
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col col-md-4">
-                <h4>Newsletter</h4>
-                <h6>Subscribe to our newsletter to get updates.</h6>
+            <div class="col-md-4">
+                <h4 class="text-left">Subscribe</h4>
                 <form [formGroup]="subscribeForm">
                     <div class="form-group row">
-                        <input type="email" class="form-control" formControlName="email" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+                        <div class="trial">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+
+                            <button class="btn btn-info" type="button" [disabled]="clicked" (click)="subscribe()">
+                                Subscribe
+                                <span *ngIf="clicked" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
+                            </button>
+                        </div>
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                             <div *ngIf="f.email.errors.required">Email is required</div>
                             <div *ngIf="f.email.errors.pattern">Input a valid email</div>
                         </div>
-                        <button class="btn btn-info" type="button" [disabled]="clicked" (click)="subscribe()">
-                            Subscribe
-                            <span *ngIf="clicked" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
-                        </button>
+
                         <div class="flash">
                             <flash-messages></flash-messages>
                         </div>
                     </div>
                 </form>
-
-
             </div>
-            <div class="col col-md-4 mb-5">
-                <h4>Social Media</h4>
-                <h6 class="intro">Follow us on social media to find out the latest updates on our progress</h6>
+            <div class="col-md-4 mb-5">
+                <h4>Follow Us</h4>
                 <div class="social-media">
                     <fa name="facebook" size="lg"></fa>
                     <fa name="twitter" size="lg"></fa>
@@ -33,10 +33,11 @@
                     <fa name="linkedin" size="lg"></fa>
                 </div>
             </div>
-            <div class="col col-md-4">
+            <div class="col-md-4">
                 <h4>Morbags</h4>
                 <nav class="nav flex-column">
                     <a routerLink="/about">About us</a>
+                    <a routerLink="/about">Contact us</a>
                 </nav>
             </div>
         </div>

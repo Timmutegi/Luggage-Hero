@@ -6,7 +6,10 @@
         padding-top: 50px;
         .row {
             margin-bottom: 50px;
-            .col {
+            .col-md-4 {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
                 h4 {
                     color: #85d8ba;
                 }
@@ -15,8 +18,19 @@
                     font-weight: 400;
                 }
                 form {
-                    margin-left: 15px;
-                    margin-top: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .form-group {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .trial {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                     input[type="email"] {
                         outline: none !important;
                         box-shadow: none !important;
@@ -32,7 +46,7 @@
                         font-size: 13px;
                     }
                     button {
-                        margin-top: 10px;
+                        height: 2rem;
                         font-size: 13px;
                         border-radius: 0px;
                         background-color: #820263;
@@ -49,10 +63,6 @@
                     width: 18rem;
                     font-size: 13px;
                     color: #85d8ba;
-                }
-                .intro {
-                    width: 80%;
-                    font-weight: 400;
                 }
                 .social-media {
                     margin-top: 20px;
