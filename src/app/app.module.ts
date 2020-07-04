@@ -34,6 +34,7 @@ import { PendingBookingsComponent } from './components/pending-bookings/pending-
 import { CompletedBookingsComponent } from './components/completed-bookings/completed-bookings.component';
 import { NavComponent } from './components/nav/nav.component';
 import { BookingSuccessComponent } from './components/booking-success/booking-success.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { BookingSuccessComponent } from './components/booking-success/booking-su
     CompletedBookingsComponent,
     NavComponent,
     BookingSuccessComponent,
+    ContactUsComponent,
 
   ],
   imports: [
