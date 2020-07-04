@@ -13,6 +13,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookingSuccessComponent } from './components/booking-success/booking-success.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: 'details/:ID', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'status/:bookingID', component: BookingSuccessComponent, canActivate: [AuthGuard] },
   { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
