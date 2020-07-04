@@ -1,0 +1,24 @@
+.container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    min-height: 60vh;
+    form {
+        margin-top: 30px;
+        .form-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            border-radius: 0px;
+        }
+        input[type="email"],
+        input[type="text"] {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        button {
+            border-radius: 0px;
+        }
+    }
+}

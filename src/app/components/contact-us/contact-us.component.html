@@ -1,3 +1,43 @@
 <app-nav></app-nav>
 <app-hero-section></app-hero-section>
+<div class="container">
+    <div class="contact">
+        <h2 class="text-center">Contact us</h2>
+        <form [formGroup]="contactForm">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors}" autofocus>
+                    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstname.errors.required">Firstname is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" class="form-control" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors}">
+                    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastname.errors.required">Lastname is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.pattern">Input a valid email in lowercase</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-block" (click)="submit()">SUBMIT
+                      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <app-footer></app-footer>
