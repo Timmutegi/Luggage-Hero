@@ -7,9 +7,8 @@
                     <div class="form-group row">
                         <div class="trial">
                             <input type="email" class="form-control" formControlName="email" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
-
                             <button class="btn btn-info" type="button" [disabled]="clicked" (click)="subscribe()">
-                                Subscribe
+                                <fa name="thumbs-up"></fa>
                                 <span *ngIf="clicked" class="spinner-border spinner-border-sm" role="login" aria-hidden="true"></span>
                             </button>
                         </div>
@@ -17,7 +16,6 @@
                             <div *ngIf="f.email.errors.required">Email is required</div>
                             <div *ngIf="f.email.errors.pattern">Input a valid email</div>
                         </div>
-
                         <div class="flash">
                             <flash-messages></flash-messages>
                         </div>
